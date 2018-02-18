@@ -3,7 +3,7 @@ package youth.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user1")
+@Table(name = "user")
 public class User {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
