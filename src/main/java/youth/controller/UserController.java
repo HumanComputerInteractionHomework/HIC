@@ -14,9 +14,11 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import youth.blservice.UserBLService;
+import youth.model.User;
 
 import java.util.Map;
 
+//访问：localhost:8080/user/hello，路径中不用加cloud
 @Api(value = "用户模块", description = "用户相关接口")
 @RestController
 @RequestMapping("/user")
@@ -43,6 +45,7 @@ public class UserController {
     }
     @RequestMapping("/hello")
     public String say() {
+
         return "Helloxixiix";
     }
 }
