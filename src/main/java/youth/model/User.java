@@ -3,22 +3,59 @@ package youth.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user1")
 public class User {
-    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    @Id
+    private int id;
+
+
+
 
     @Column(name = "phone")
     private String phone;
 
-    public Integer getId() {
-        return id;
+    @Column(name = "mail")
+    private String mail;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "name")
+    private String name;
+
+
+    public User(){
+
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public User(String phone, String mail, String password, String name) {
+        this.phone = phone;
+        this.mail = mail;
+        this.password = password;
+        this.name = name;
     }
+
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String passwor) {
+        this.password = passwor;
+    }
+
+
+
 
     public String getPhone() {
         return phone;

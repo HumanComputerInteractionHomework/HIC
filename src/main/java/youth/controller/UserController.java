@@ -13,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import youth.bean.ResultMessageBean;
 import youth.blservice.UserBLService;
 
 import java.util.Map;
@@ -28,6 +29,9 @@ public class UserController {
         this.userBLService=userBLService;
     }
 
+    /*
+    登录
+     */
 
     @ApiOperation(value = "账号密码登录", notes = "可能状态码：0,1,9<br>登录成功返回签名")
     @ApiImplicitParams({
@@ -35,14 +39,75 @@ public class UserController {
             @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String"),
 
     })
-    @PostMapping("/personalInfo")
-    public String login(String phone, String password) {
+    @PostMapping("/login")
+    public ResultMessageBean login(String phone, String password) {
         //return "hhh";
         return userBLService.login(phone,password);
 
+
     }
+
+
+    /*
+    注册
+     */
+
+    @ApiOperation(value = "注册", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "mail", value = "邮箱", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "name", value = "用户名", required = true, dataType = "String"),
+
+    })
+    @PostMapping("/sign-up")
+    public ResultMessageBean signUp(String phone, String password,String mail,String name) {
+
+
+        return userBLService.signUp(phone,password,mail,name);
+
+
+    }
+
+    /*
+    修改密码
+     */
+
+    @ApiOperation(value = "修改密码", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String"),
+
+    })
+    @PostMapping("/password")
+    public ResultMessageBean editPassword(String phone, String password) {
+       return userBLService.editPassword(phone,password);
+
+
+    }
+
+
+
+
+
     @RequestMapping("/hello")
     public String say() {
         return "Helloxixiix";
     }
+
+    @RequestMapping("/login")
+    public ResultMessageBean login() {
+        return null;
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
