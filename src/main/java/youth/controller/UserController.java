@@ -5,18 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.web.multipart.MultipartFile;
+import youth.bean.JobExperienceBean;
 import youth.bean.ResultMessageBean;
 import youth.blservice.UserBLService;
 import youth.model.User;
 
+import java.util.List;
 import java.util.Map;
 
 //访问：localhost:8080/user/hello，路径中不用加cloud
@@ -92,15 +92,39 @@ public class UserController {
 
 
 
+
+
+
+   /*
+    填写职业经历信息
+     */
+
+    @ResponseBody
+    @RequestMapping(
+            value = "/jobExperience",
+            method = RequestMethod.POST,
+            produces = {"application/json; charset=UTF-8"})
+    public ResultMessageBean saveJobExperience(@RequestBody List<JobExperienceBean> jobExperienceBeans) {
+        return null;
+    }
+
+     /*
+    得到职业经历信息
+     */
+
+    @ApiOperation(value = "得到职业经历信息", notes = "可能状态码：45,44,34,35")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
+    })
+    @PostMapping("/getJobExperience")
+    public List<JobExperienceBean> getJobExperience(String phone) {
+        return null;
+    }
+
     @RequestMapping("/hello")
     public String say() {
 
         return "Helloxixiix";
-    }
-
-    @RequestMapping("/login")
-    public ResultMessageBean login() {
-        return null;
     }
 
 

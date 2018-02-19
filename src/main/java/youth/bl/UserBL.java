@@ -47,7 +47,7 @@ public class UserBL implements UserBLService {
 
 
         User user=new User(phone, mail, password, name);
-        try{
+       try{
             userRepository.save(user);
         }catch (Exception e){
 
