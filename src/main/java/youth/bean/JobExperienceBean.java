@@ -1,6 +1,18 @@
 package youth.bean;
 
 public class JobExperienceBean {
+    /*
+    * @author:MAX
+    */
+    private String  phone;
+    private String companyName;
+    private String companyQuality;
+    private String companyLevel;
+    private String job;
+    private String fromTime;
+    private String toTime;
+    private String description;
+
     public JobExperienceBean(String phone, String companyName, String companyQuality, String companyLevel, String job, String fromTime, String toTime, String description) {
         this.phone = phone;
         this.companyName = companyName;
@@ -76,13 +88,5 @@ public class JobExperienceBean {
         this.description = description;
     }
 
-    private String  phone;
-    private String companyName;
-    private String companyQuality;
-    private String companyLevel;
-    private String job;
-    private String fromTime;
-    private String toTime;
-    private String description;
 
 }
