@@ -4,7 +4,7 @@ public class JobExperienceBean {
     /*
     * @author:MAX
     */
-    private String  phone;
+    private String phone;
     private String companyName;
     private String companyQuality;
     private String companyLevel;
@@ -89,4 +89,19 @@ public class JobExperienceBean {
     }
 
 
+
+
+    @Override
+    public String toString() {
+        return "JobExperienceBean{" +
+                "phone='" + phone + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", companyQuality='" + companyQuality + '\'' +
+                ", companyLevel='" + companyLevel + '\'' +
+                ", job='" + job + '\'' +
+                ", fromTime='" + fromTime + '\'' +
+                ", toTime='" + toTime + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
