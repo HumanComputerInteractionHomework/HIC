@@ -11,8 +11,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.multipart.MultipartFile;
-import youth.bean.JobExperienceBean;
-import youth.bean.ResultMessageBean;
+import youth.bean.*;
 import youth.blservice.UserBLService;
 import youth.model.User;
 
@@ -91,6 +90,88 @@ public class UserController {
 
 
 
+    /*
+    填写用户基本信息
+     */
+
+    @ResponseBody
+    @RequestMapping(
+            value = "/userBasicMessage",
+            method = RequestMethod.POST,
+            produces = {"application/json; charset=UTF-8"})
+    public ResultMessageBean saveUserBasicMessage(@RequestBody UserBasicMessageBean userBasicMessageBean) {
+        return null;
+    }
+
+     /*
+    得到用户基本信息
+     */
+
+    @ApiOperation(value = "得到用户基本信息", notes = "可能状态码：45,44,34,35")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
+    })
+    @PostMapping("/getUserBasicMessage")
+    public UserBasicMessageBean getUserBasicMessage(String phone) {
+        return null;
+    }
+
+    /*
+    填写教育信息
+     */
+
+    @ResponseBody
+    @RequestMapping(
+            value = "/education",
+            method = RequestMethod.POST,
+            produces = {"application/json; charset=UTF-8"})
+    public ResultMessageBean saveEducation(@RequestBody EducationBean educationBean) {
+        return null;
+    }
+
+     /*
+    得到教育信息
+     */
+
+    @ApiOperation(value = "得到教育信息", notes = "可能状态码：45,44,34,35")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
+    })
+    @PostMapping("/getEducation")
+    public EducationBean getEducation(String phone) {
+        return null;
+    }
+
+
+/*
+  填写项目经历信息
+     */
+
+    @ResponseBody
+    @RequestMapping(
+            value = "/projectExperience",
+            method = RequestMethod.POST,
+            produces = {"application/json; charset=UTF-8"})
+    public ResultMessageBean saveProjectExperience(@RequestBody List<ProjectExperienceBean> projectExperienceBeans) {
+        return null;
+    }
+
+     /*
+    得到项目经历信息
+     */
+
+    @ApiOperation(value = "得到职业经历信息", notes = "可能状态码：45,44,34,35")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
+    })
+    @PostMapping("/getProjectExperience")
+    public List<JobExperienceBean> getProjectExperience(String phone) {
+        return null;
+    }
+
+
+
+
 
 
 
@@ -120,6 +201,63 @@ public class UserController {
     public List<JobExperienceBean> getJobExperience(String phone) {
         return null;
     }
+
+
+
+    /*
+  填写用户技能
+     */
+
+    @ResponseBody
+    @RequestMapping(
+            value = "/skill",
+            method = RequestMethod.POST,
+            produces = {"application/json; charset=UTF-8"})
+    public ResultMessageBean saveSkill(@RequestBody List<SkillBean> skillBeans) {
+        return null;
+    }
+
+     /*
+    得到用户技能
+     */
+
+    @ApiOperation(value = "得到用户技能", notes = "可能状态码：45,44,34,35")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
+    })
+    @PostMapping("/getSkill")
+    public List<SkillBean> getSkill(String phone) {
+        return null;
+    }
+
+
+     /*
+  填写用户职业预期
+     */
+
+    @ResponseBody
+    @RequestMapping(
+            value = "/expectation",
+            method = RequestMethod.POST,
+            produces = {"application/json; charset=UTF-8"})
+    public ResultMessageBean saveExpectation(@RequestBody List<ExpectationBean> expectationBeans) {
+        return null;
+    }
+
+     /*
+    得到用户职业预期
+     */
+
+    @ApiOperation(value = "得到用户职业预期", notes = "可能状态码：45,44,34,35")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
+    })
+    @PostMapping("/getExpectation")
+    public List<ExpectationBean> getExpectation(String phone) {
+        return null;
+    }
+
+
 
     @RequestMapping("/hello")
     public String say() {
