@@ -2,9 +2,6 @@ package youth.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -12,11 +9,13 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.multipart.MultipartFile;
 import youth.bean.*;
+import youth.bean.JobExperienceBean;
+import youth.bean.ResultMessageBean;
+import youth.blservice.JobExperienceBLService;
+
 import youth.blservice.UserBLService;
-import youth.model.User;
 
 import java.util.List;
-import java.util.Map;
 
 //访问：localhost:8080/user/hello，路径中不用加cloud
 @Api(value = "用户模块", description = "用户相关接口")
@@ -24,7 +23,12 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
+
+    @Autowired
+    private JobExperienceBLService jobExperienceBLService;
+
     private final UserBLService userBLService;
+
     @Autowired
     public UserController(UserBLService userBLService){
         this.userBLService=userBLService;
@@ -174,8 +178,6 @@ public class UserController {
 
 
 
-
-
    /*
     填写职业经历信息
      */
@@ -186,7 +188,8 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveJobExperience(@RequestBody List<JobExperienceBean> jobExperienceBeans) {
-        return null;
+        return jobExperienceBLService.saveJobExperience(jobExperienceBeans);
+
     }
 
      /*
@@ -199,7 +202,8 @@ public class UserController {
     })
     @PostMapping("/getJobExperience")
     public List<JobExperienceBean> getJobExperience(String phone) {
-        return null;
+
+        return jobExperienceBLService.getJobExperience(phone);
     }
 
 
