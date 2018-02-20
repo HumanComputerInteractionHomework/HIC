@@ -24,6 +24,10 @@ private List<HonorBean> honorBeans;
         this.phone = phone;
     }
 
+    public EducationBean(){
+
+    }
+
     public EducationBean(String phone, String educationDegree, String school, String major, String fromTime, String toTime, List<HonorBean> honorBeans) {
         this.phone = phone;
         this.educationDegree = educationDegree;

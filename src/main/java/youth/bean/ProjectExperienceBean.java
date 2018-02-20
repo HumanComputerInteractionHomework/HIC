@@ -1,5 +1,8 @@
 package youth.bean;
 
+import lombok.Data;
+
+@Data
 public class ProjectExperienceBean {
     /*
     * @author:MAX
@@ -66,6 +69,11 @@ public class ProjectExperienceBean {
 
     public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
+    }
+
+
+    public ProjectExperienceBean(){
+
     }
 
     public ProjectExperienceBean(String phone, String projectName, String projectLevel, String fromTime, String toTime, String projectDescription, String jobDescription) {

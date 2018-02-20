@@ -6,9 +6,13 @@ public class HonorBean {
 * @author:MAX
 */
 
-private String phone;
-private String honorName;
-private String level;
+    private String phone;
+    private String honorName;
+    private String level;
+
+    public HonorBean(){
+
+    }
 
     public HonorBean(String phone, String honorName, String level) {
         this.phone = phone;

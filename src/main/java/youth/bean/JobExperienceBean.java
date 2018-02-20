@@ -13,6 +13,11 @@ public class JobExperienceBean {
     private String toTime;
     private String description;
 
+
+    public JobExperienceBean(){
+
+    }
+
     public JobExperienceBean(String phone, String companyName, String companyQuality, String companyLevel, String job, String fromTime, String toTime, String description) {
         this.phone = phone;
         this.companyName = companyName;
