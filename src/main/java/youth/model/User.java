@@ -8,9 +8,7 @@ public class User {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
     @Id
-    private int id;
-
-
+    private Integer id;
 
 
     @Column(name = "phone")
@@ -54,9 +52,6 @@ public class User {
         this.password = passwor;
     }
 
-
-
-
     public String getPhone() {
         return phone;
     }
@@ -64,8 +59,6 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
 
 
 
