@@ -1,5 +1,8 @@
 package youth.bean;
 
+import lombok.Data;
+
+@Data
 public class UserBasicMessageBean {
     /*
       * @author:MAX
@@ -19,7 +22,7 @@ public class UserBasicMessageBean {
     private Integer basicSalary;
     private Integer bonus;
     private Integer commission;
-    private Integer tockShareOption;
+    private Integer stockShareOption;
     public String getPhone() {
         return phone;
     }
@@ -32,7 +35,14 @@ public class UserBasicMessageBean {
         return realName;
     }
 
-    public UserBasicMessageBean(String phone, String realName, String birthday, String gender, String address, Double jobYear, String salary, Integer lowSalary, Integer highSalary, Integer basicSalary, Integer bonus, Integer commission, Integer tockShareOption) {
+
+    public UserBasicMessageBean(){
+
+    }
+
+    public UserBasicMessageBean(String phone, String realName, String birthday, String gender, String address,
+                                Double jobYear, String salary, Integer lowSalary, Integer highSalary,
+                                Integer basicSalary, Integer bonus, Integer commission, Integer stockShareOption) {
         this.phone = phone;
         this.realName = realName;
         this.birthday = birthday;
@@ -45,7 +55,7 @@ public class UserBasicMessageBean {
         this.basicSalary = basicSalary;
         this.bonus = bonus;
         this.commission = commission;
-        this.tockShareOption = tockShareOption;
+        this.stockShareOption = stockShareOption;
     }
 
     public void setRealName(String realName) {
@@ -132,12 +142,12 @@ public class UserBasicMessageBean {
         this.commission = commission;
     }
 
-    public Integer getTockShareOption() {
-        return tockShareOption;
+    public Integer getStockShareOption() {
+        return stockShareOption;
     }
 
-    public void setTockShareOption(Integer tockShareOption) {
-        this.tockShareOption = tockShareOption;
+    public void setStockShareOption(Integer stockShareOption) {
+        this.stockShareOption = stockShareOption;
     }
 
 

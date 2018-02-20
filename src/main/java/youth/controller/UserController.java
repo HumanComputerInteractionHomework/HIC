@@ -7,11 +7,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.multipart.MultipartFile;
 import youth.bean.*;
 import youth.bean.JobExperienceBean;
 import youth.bean.ResultMessageBean;
-import youth.blservice.JobExperienceBLService;
 
 import youth.blservice.UserBLService;
 
@@ -23,9 +21,6 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-
-    @Autowired
-    private JobExperienceBLService jobExperienceBLService;
 
     private final UserBLService userBLService;
 
@@ -104,7 +99,7 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveUserBasicMessage(@RequestBody UserBasicMessageBean userBasicMessageBean) {
-        return null;
+        return userBLService.saveUserBasicMessage(userBasicMessageBean);
     }
 
      /*
@@ -117,7 +112,7 @@ public class UserController {
     })
     @PostMapping("/getUserBasicMessage")
     public UserBasicMessageBean getUserBasicMessage(String phone) {
-        return null;
+        return userBLService.getUserBasicMessage(phone);
     }
 
     /*
@@ -130,7 +125,7 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveEducation(@RequestBody EducationBean educationBean) {
-        return null;
+        return userBLService.saveEducation(educationBean);
     }
 
      /*
@@ -143,7 +138,7 @@ public class UserController {
     })
     @PostMapping("/getEducation")
     public EducationBean getEducation(String phone) {
-        return null;
+        return userBLService.getEducation(phone);
     }
 
 
@@ -157,23 +152,21 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveProjectExperience(@RequestBody List<ProjectExperienceBean> projectExperienceBeans) {
-        return null;
+        return userBLService.saveProjectExperience(projectExperienceBeans);
     }
 
      /*
     得到项目经历信息
      */
 
-    @ApiOperation(value = "得到职业经历信息", notes = "可能状态码：45,44,34,35")
+    @ApiOperation(value = "得到项目经历信息", notes = "可能状态码：45,44,34,35")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
     })
     @PostMapping("/getProjectExperience")
-    public List<JobExperienceBean> getProjectExperience(String phone) {
-        return null;
+    public List<ProjectExperienceBean> getProjectExperience(String phone) {
+        return userBLService.getProjectExperience(phone);
     }
-
-
 
 
 
@@ -188,7 +181,7 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveJobExperience(@RequestBody List<JobExperienceBean> jobExperienceBeans) {
-        return jobExperienceBLService.saveJobExperience(jobExperienceBeans);
+        return userBLService.saveJobExperience(jobExperienceBeans);
 
     }
 
@@ -203,7 +196,7 @@ public class UserController {
     @PostMapping("/getJobExperience")
     public List<JobExperienceBean> getJobExperience(String phone) {
 
-        return jobExperienceBLService.getJobExperience(phone);
+        return userBLService.getJobExperience(phone);
     }
 
 
@@ -218,7 +211,7 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveSkill(@RequestBody List<SkillBean> skillBeans) {
-        return null;
+        return userBLService.saveSkill(skillBeans);
     }
 
      /*
@@ -231,7 +224,7 @@ public class UserController {
     })
     @PostMapping("/getSkill")
     public List<SkillBean> getSkill(String phone) {
-        return null;
+        return userBLService.getSkill(phone);
     }
 
 
@@ -244,8 +237,8 @@ public class UserController {
             value = "/expectation",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveExpectation(@RequestBody List<ExpectationBean> expectationBeans) {
-        return null;
+    public ResultMessageBean saveExpectation(@RequestBody ExpectationBean expectationBean) {
+        return userBLService.saveExpectation(expectationBean);
     }
 
      /*
@@ -257,8 +250,8 @@ public class UserController {
             @ApiImplicitParam(name = "phone", value = "手机号码", required = true, dataType = "MultipartFile")
     })
     @PostMapping("/getExpectation")
-    public List<ExpectationBean> getExpectation(String phone) {
-        return null;
+    public ExpectationBean getExpectation(String phone) {
+        return userBLService.getExpectation(phone);
     }
 
 

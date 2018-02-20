@@ -2,18 +2,15 @@ package youth.dao;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import youth.bean.JobExperienceBean;
+import youth.model.Honor;
 import youth.model.JobExperience;
-
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 
-public interface JobExperienceRepository extends JpaRepository<JobExperience, Integer> {
+public interface HonorRepository extends JpaRepository<Honor, Integer> {
 
 //    User findByPhone(String phone);
 //    @Transactional
@@ -29,7 +26,7 @@ public interface JobExperienceRepository extends JpaRepository<JobExperience, In
     @Transactional
     void deleteByPhone(@Param("phone") String phone);
 
-    List<JobExperience> findByPhone(String phone);
+    List<Honor> findByPhone(String phone);
 
 
 }

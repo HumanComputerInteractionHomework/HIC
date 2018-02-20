@@ -1,5 +1,8 @@
 package youth.bean;
 
+import lombok.Data;
+
+@Data
 public class SkillBean {
 
 /*
@@ -10,6 +13,10 @@ private String skillName;
 private String degree;
 private String certificate;
 private String description;
+
+    public SkillBean(){
+
+    }
 
     public SkillBean(String phone, String skillName, String degree, String certificate, String description) {
         this.phone = phone;
