@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.ResultMessageBean;
-import youth.blservice.JobExperienceBLService;
+
 import youth.blservice.JobService;
 import youth.blservice.UserBLService;
 

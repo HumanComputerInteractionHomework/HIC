@@ -7,9 +7,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import youth.bean.CompanyRemarkBean;
 import youth.bean.JobDetailBean;
 import youth.bean.JobExperienceBean;
 import youth.bean.ResultMessageBean;
@@ -29,20 +28,42 @@ public class CompanyController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "company", value = "公司名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "score", value = "分数", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "recomandScore", value = "推荐率", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "futureScore", value = "公司前景看好率", required = true, dataType = "int"),
+
+            @ApiImplicitParam(name = "ceoScore", value = "ceo支持率", required = true, dataType = "int"),
+
             @ApiImplicitParam(name = "remark", value = "评价", required = true, dataType = "String"),
 
 
 
     })
     @PostMapping("/remark")
-    public ResultMessageBean companyRemark(String phone,String company,int score, String remark) {
+    public ResultMessageBean companyRemark(String phone,String company,int recomandScore,int futureScore,int ceoScore, String remark) {
 
 
         return null;
 
     }
 
+/*
+      得到公司评价
+     */
+
+    @ApiOperation(value = "收藏职位", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "company", value = "公司名", required = true, dataType = "String"),
+
+
+
+    })
+    @PostMapping("/remark/get")
+    public CompanyRemarkBean getCompanyRemark(String company) {
+
+
+        return null;
+
+    }
 
 
 
@@ -73,20 +94,36 @@ public class CompanyController {
     }
 
     /*
-      公司具体信息
+      面试评价
      */
 
-
-    @ApiOperation(value = "得到公司具体信息", notes = "可能状态码：45,44,34,35")
+    @ApiOperation(value = "收藏职位", notes = "可能状态码：0,1,9<br>登录成功返回签名")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "companyId", required = true, dataType = "MultipartFile")
+           @ApiImplicitParam(name = "company", value = "公司名", required = true, dataType = "String"),
+
+
+
     })
-    @PostMapping("/getCompanyDetailMessage")
-    public JobDetailBean getProjectExperience(String companyId) {
+    @PostMapping("/interview/remark")
+    public ResultMessageBean getInterviewRemark(String company) {
+
+
         return null;
+
     }
 
 
+    /**
+     得到公司具体信息
+     */
+    @ResponseBody
+    @RequestMapping(
+            value = "/jobDetail/{jobId}",
+            method = RequestMethod.GET,
+            produces = {"application/json; charset=UTF-8"})
+    public JobDetailBean findSocialNetworkByManagerId(@PathVariable String jobId){
+        return null;
+    }
 
 
 }
