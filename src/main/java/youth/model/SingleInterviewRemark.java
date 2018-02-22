@@ -10,8 +10,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "single_company_remark")
-public class SingleCompanyRemark {
+@Table(name = "single_interview_remark")
+public class SingleInterviewRemark {
 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
@@ -20,21 +20,21 @@ public class SingleCompanyRemark {
 
     private String phone;
     private String company;
-    private Integer recomandScore;
-    private Integer futureScore;
-    private Integer ceoScore;
+    private String result;
+    private Integer difficulty;
+    private Integer feeling;
     private String remark;
 
-    public SingleCompanyRemark(){
+    public SingleInterviewRemark(){
 
     }
 
-    public SingleCompanyRemark(String phone, String company, int recomandScore, int futureScore, int ceoScore, String remark) {
+    public SingleInterviewRemark(String phone, String company, String result, Integer difficulty, Integer feeling, String remark) {
         this.phone = phone;
         this.company = company;
-        this.recomandScore = recomandScore;
-        this.futureScore = futureScore;
-        this.ceoScore = ceoScore;
+        this.result = result;
+        this.difficulty = difficulty;
+        this.feeling = feeling;
         this.remark = remark;
     }
 
@@ -62,28 +62,28 @@ public class SingleCompanyRemark {
         this.company = company;
     }
 
-    public Integer getRecomandScore() {
-        return recomandScore;
+    public String getResult() {
+        return result;
     }
 
-    public void setRecomandScore(Integer recomandScore) {
-        this.recomandScore = recomandScore;
+    public void setResult(String result) {
+        this.result = result;
     }
 
-    public Integer getFutureScore() {
-        return futureScore;
+    public Integer getDifficulty() {
+        return difficulty;
     }
 
-    public void setFutureScore(Integer futureScore) {
-        this.futureScore = futureScore;
+    public void setDifficulty(Integer difficulty) {
+        this.difficulty = difficulty;
     }
 
-    public Integer getCeoScore() {
-        return ceoScore;
+    public Integer getFeeling() {
+        return feeling;
     }
 
-    public void setCeoScore(Integer ceoScore) {
-        this.ceoScore = ceoScore;
+    public void setFeeling(Integer feeling) {
+        this.feeling = feeling;
     }
 
     public String getRemark() {

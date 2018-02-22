@@ -5,10 +5,9 @@ import lombok.Data;
 /*
 * @author:MAX
 */
-@Data
+
+
 public class JobDetailBean {
-
-
 
 
 

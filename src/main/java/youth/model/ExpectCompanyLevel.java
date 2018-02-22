@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author lw
  */
 
-@Data
+
 @Entity
 @Table(name = "expect_company_level")
 public class ExpectCompanyLevel {
@@ -26,6 +26,30 @@ public class ExpectCompanyLevel {
 
     public ExpectCompanyLevel(String phone, String expectCompanyLevel) {
         this.phone = phone;
+        this.expectCompanyLevel = expectCompanyLevel;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getExpectCompanyLevel() {
+        return expectCompanyLevel;
+    }
+
+    public void setExpectCompanyLevel(String expectCompanyLevel) {
         this.expectCompanyLevel = expectCompanyLevel;
     }
 }

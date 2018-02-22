@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author lw
  */
 
-@Data
+
 @Entity
 @Table(name = "honor")
 public class Honor {
@@ -31,4 +31,35 @@ public class Honor {
         this.level = level;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getHonorName() {
+        return honorName;
+    }
+
+    public void setHonorName(String honorName) {
+        this.honorName = honorName;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
 }

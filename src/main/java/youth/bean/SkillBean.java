@@ -2,7 +2,7 @@ package youth.bean;
 
 import lombok.Data;
 
-@Data
+
 public class SkillBean {
 
 /*
@@ -64,6 +64,17 @@ private String description;
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "SkillBean{" +
+                "phone='" + phone + '\'' +
+                ", skillName='" + skillName + '\'' +
+                ", degree='" + degree + '\'' +
+                ", certificate='" + certificate + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
 

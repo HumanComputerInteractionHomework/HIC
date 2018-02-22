@@ -4,7 +4,7 @@ import lombok.Data;
 /*
       * @author:MAX
       */
-@Data
+
 public class UserBasicMessageBean {
 
     private String phone;
@@ -150,10 +150,22 @@ public class UserBasicMessageBean {
         this.stockShareOption = stockShareOption;
     }
 
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "UserBasicMessageBean{" +
+                "phone='" + phone + '\'' +
+                ", realName='" + realName + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", jobYear=" + jobYear +
+                ", salary='" + salary + '\'' +
+                ", lowSalary=" + lowSalary +
+                ", highSalary=" + highSalary +
+                ", basicSalary=" + basicSalary +
+                ", bonus=" + bonus +
+                ", commission=" + commission +
+                ", stockShareOption=" + stockShareOption +
+                '}';
+    }
 }
