@@ -9,7 +9,9 @@ import youth.dao.ScannedJobRepository;
 import youth.model.DisLikedJob;
 import youth.model.LikedJob;
 import youth.model.ScannedJob;
-
+/*
+* @author:MAX
+*/
 @Service
 public class JobServiceBL implements JobService{
     private final LikedJobRepository likedJobRepository;
@@ -70,9 +72,23 @@ public class JobServiceBL implements JobService{
         return new ResultMessageBean(true);
     }
 
-/*
-* @author:MAX
-*/
+    @Override
+    public ResultMessageBean cancelLikeJob(String phone, String jobId) {
+        try {
+            likedJobRepository.deleteByPhoneAndJobId(phone,jobId);
+
+        }catch (Exception e){
+            System.out.println(e);
+            return new ResultMessageBean(false,"删除失败");
+        }
+
+
+
+
+        return new ResultMessageBean(true);
+    }
+
+
 
 
 }

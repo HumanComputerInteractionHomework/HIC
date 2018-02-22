@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.ResultMessageBean;
+
 import youth.blservice.JobService;
 import youth.blservice.UserBLService;
 
@@ -17,7 +18,7 @@ import youth.blservice.UserBLService;
 * @author:MAX
 */
 
-@Api(value = "用户模块", description = "用户相关接口")
+@Api(value = "职业模块", description = "职业相关接口")
 @RestController
 @RequestMapping("/job")
 public class JobController {
@@ -46,6 +47,25 @@ public class JobController {
 
         System.out.println("like "+phone+" "+jobId);
         return jobService.likeJob(phone,jobId);
+
+    }
+
+
+    /*
+      取消收藏职位
+     */
+
+    @ApiOperation(value = "收藏职位", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "jobId", value = "职位id", required = true, dataType = "String"),
+
+    })
+    @PostMapping("/like/cancel")
+    public ResultMessageBean cancelLikeJob(String phone, String jobId) {
+
+        System.out.println("like "+phone+" "+jobId);
+        return jobService.cancelLikeJob(phone,jobId);
 
     }
 
@@ -78,6 +98,22 @@ public class JobController {
     @PostMapping("/scan")
     public ResultMessageBean scanJob(String phone, String jobId) {
         System.out.println("scan "+phone+" "+jobId);
+        return jobService.scanJob(phone,jobId);
+
+    }
+
+    /*
+      得到用户收藏职位列表
+     */
+
+    @ApiOperation(value = "用户收藏职业列表", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
+
+    })
+    @PostMapping("/like/display")
+    public ResultMessageBean getLikedJob(String phone, String jobId) {
+
         return jobService.scanJob(phone,jobId);
 
     }

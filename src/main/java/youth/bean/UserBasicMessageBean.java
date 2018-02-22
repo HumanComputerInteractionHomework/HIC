@@ -1,12 +1,12 @@
 package youth.bean;
 
 import lombok.Data;
-
-@Data
-public class UserBasicMessageBean {
-    /*
+/*
       * @author:MAX
       */
+@Data
+public class UserBasicMessageBean {
+
     private String phone;
     private String realName;
     private String birthday;
