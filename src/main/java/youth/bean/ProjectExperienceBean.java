@@ -2,7 +2,7 @@ package youth.bean;
 
 import lombok.Data;
 
-@Data
+
 public class ProjectExperienceBean {
     /*
     * @author:MAX
@@ -86,8 +86,16 @@ public class ProjectExperienceBean {
         this.jobDescription = jobDescription;
     }
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "ProjectExperienceBean{" +
+                "phone='" + phone + '\'' +
+                ", projectName='" + projectName + '\'' +
+                ", projectLevel='" + projectLevel + '\'' +
+                ", fromTime='" + fromTime + '\'' +
+                ", toTime='" + toTime + '\'' +
+                ", projectDescription='" + projectDescription + '\'' +
+                ", jobDescription='" + jobDescription + '\'' +
+                '}';
+    }
 }

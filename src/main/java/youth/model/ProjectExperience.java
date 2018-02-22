@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author lw
  */
 
-@Data
+
 @Entity
 @Table(name = "project_experience")
 public class ProjectExperience {
@@ -36,6 +36,70 @@ public class ProjectExperience {
         this.fromTime = fromTime;
         this.toTime = toTime;
         this.projectDescription = projectDescription;
+        this.jobDescription = jobDescription;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public String getProjectLevel() {
+        return projectLevel;
+    }
+
+    public void setProjectLevel(String projectLevel) {
+        this.projectLevel = projectLevel;
+    }
+
+    public String getFromTime() {
+        return fromTime;
+    }
+
+    public void setFromTime(String fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public String getToTime() {
+        return toTime;
+    }
+
+    public void setToTime(String toTime) {
+        this.toTime = toTime;
+    }
+
+    public String getProjectDescription() {
+        return projectDescription;
+    }
+
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
+    }
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
         this.jobDescription = jobDescription;
     }
 }

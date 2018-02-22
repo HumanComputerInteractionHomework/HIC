@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Data
+
 @Entity
 @Table(name = "job_experience")
 public class JobExperience {
@@ -35,6 +35,78 @@ public class JobExperience {
         this.job = job;
         this.fromTime = fromTime;
         this.toTime = toTime;
+        this.description = description;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyQuality() {
+        return companyQuality;
+    }
+
+    public void setCompanyQuality(String companyQuality) {
+        this.companyQuality = companyQuality;
+    }
+
+    public String getCompanyLevel() {
+        return companyLevel;
+    }
+
+    public void setCompanyLevel(String companyLevel) {
+        this.companyLevel = companyLevel;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getFromTime() {
+        return fromTime;
+    }
+
+    public void setFromTime(String fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public String getToTime() {
+        return toTime;
+    }
+
+    public void setToTime(String toTime) {
+        this.toTime = toTime;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
     }
 }

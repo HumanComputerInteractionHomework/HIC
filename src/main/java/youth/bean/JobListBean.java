@@ -6,7 +6,7 @@ package youth.bean;
 
 import lombok.Data;
 
-@Data
+
 public class JobListBean {
 
     private String jobId;

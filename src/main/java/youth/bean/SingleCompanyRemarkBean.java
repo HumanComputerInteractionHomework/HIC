@@ -2,7 +2,7 @@ package youth.bean;
 
 import lombok.Data;
 
-@Data
+
 public class SingleCompanyRemarkBean {
 
 /*
@@ -27,6 +27,66 @@ public class SingleCompanyRemarkBean {
         this.futureScore = futureScore;
         this.ceoScore = ceoScore;
         this.remark = remark;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public int getRecomandScore() {
+        return recomandScore;
+    }
+
+    public void setRecomandScore(int recomandScore) {
+        this.recomandScore = recomandScore;
+    }
+
+    public int getFutureScore() {
+        return futureScore;
+    }
+
+    public void setFutureScore(int futureScore) {
+        this.futureScore = futureScore;
+    }
+
+    public int getCeoScore() {
+        return ceoScore;
+    }
+
+    public void setCeoScore(int ceoScore) {
+        this.ceoScore = ceoScore;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    @Override
+    public String toString() {
+        return "SingleCompanyRemarkBean{" +
+                "phone='" + phone + '\'' +
+                ", company='" + company + '\'' +
+                ", recomandScore=" + recomandScore +
+                ", futureScore=" + futureScore +
+                ", ceoScore=" + ceoScore +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }
 

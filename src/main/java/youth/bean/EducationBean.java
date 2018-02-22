@@ -87,8 +87,17 @@ private List<HonorBean> honorBeans;
     }
 
 
-
-
-
+    @Override
+    public String toString() {
+        return "EducationBean{" +
+                "phone='" + phone + '\'' +
+                ", educationDegree='" + educationDegree + '\'' +
+                ", school='" + school + '\'' +
+                ", major='" + major + '\'' +
+                ", fromTime='" + fromTime + '\'' +
+                ", toTime='" + toTime + '\'' +
+                ", honorBeans=" + honorBeans +
+                '}';
+    }
 }
 

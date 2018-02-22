@@ -8,7 +8,7 @@ import javax.persistence.*;
  * @author lw
  */
 
-@Data
+
 @Entity
 @Table(name = "expectation")
 public class Expectation {
@@ -31,6 +31,46 @@ public class Expectation {
         this.phone = phone;
         this.salary = salary;
         this.lowSalary = lowSalary;
+        this.highSalary = highSalary;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public Integer getLowSalary() {
+        return lowSalary;
+    }
+
+    public void setLowSalary(Integer lowSalary) {
+        this.lowSalary = lowSalary;
+    }
+
+    public Integer getHighSalary() {
+        return highSalary;
+    }
+
+    public void setHighSalary(Integer highSalary) {
         this.highSalary = highSalary;
     }
 }

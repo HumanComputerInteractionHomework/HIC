@@ -43,5 +43,14 @@ public class HonorBean {
     public void setLevel(String level) {
         this.level = level;
     }
+
+    @Override
+    public String toString() {
+        return "HonorBean{" +
+                "phone='" + phone + '\'' +
+                ", honorName='" + honorName + '\'' +
+                ", level='" + level + '\'' +
+                '}';
+    }
 }
 
