@@ -1,5 +1,8 @@
 package youth.bean;
 
+import lombok.Data;
+
+@Data
 public class CompanyInterviewRemarkBean {
 
 /*

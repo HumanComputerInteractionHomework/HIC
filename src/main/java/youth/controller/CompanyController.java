@@ -7,11 +7,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import youth.bean.CompanyRemarkBean;
 import youth.bean.JobDetailBean;
 import youth.bean.JobExperienceBean;
 import youth.bean.ResultMessageBean;
+import youth.blservice.CompanyBLService;
 
 import java.util.List;
 
@@ -20,6 +22,9 @@ import java.util.List;
 @RequestMapping("/company")
 public class CompanyController {
 
+
+    @Autowired
+    private CompanyBLService companyBLService;
      /*
       公司评价
      */
@@ -39,10 +44,11 @@ public class CompanyController {
 
     })
     @PostMapping("/remark")
-    public ResultMessageBean companyRemark(String phone,String company,int recomandScore,int futureScore,int ceoScore, String remark) {
+    public ResultMessageBean companyRemark(String phone,String company,int recomandScore,
+                                           int futureScore,int ceoScore, String remark) {
 
 
-        return null;
+        return companyBLService.companyRemark(phone, company, recomandScore, futureScore, ceoScore, remark);
 
     }
 
@@ -60,8 +66,7 @@ public class CompanyController {
     @PostMapping("/remark/get")
     public CompanyRemarkBean getCompanyRemark(String company) {
 
-
-        return null;
+        return companyBLService.getCompanyRemark(company);
 
     }
 
@@ -94,7 +99,7 @@ public class CompanyController {
     }
 
     /*
-      面试评价
+      获得某个公司的面试评价页面
      */
 
     @ApiOperation(value = "收藏职位", notes = "可能状态码：0,1,9<br>登录成功返回签名")
