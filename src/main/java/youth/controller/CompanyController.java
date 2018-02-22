@@ -104,7 +104,7 @@ public class CompanyController {
 
 
     })
-    @PostMapping("/interview/remark")
+    @PostMapping("/interview/remark/get")
     public ResultMessageBean getInterviewRemark(String company) {
 
 
