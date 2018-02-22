@@ -23,10 +23,10 @@ import youth.blservice.JobBLService;
 public class JobController {
 
     @Autowired
-    private JobBLService jobBLService;
+    private JobBLService jobService;
     @Autowired
-    public JobController(JobBLService jobBLService){
-        this.jobBLService = jobBLService;
+    public JobController(JobBLService jobService){
+        this.jobService=jobService;
 
     }
 
@@ -45,7 +45,7 @@ public class JobController {
     public ResultMessageBean likeJob(String phone, String jobId) {
 
         System.out.println("like "+phone+" "+jobId);
-        return jobBLService.likeJob(phone,jobId);
+        return jobService.likeJob(phone,jobId);
 
     }
 
@@ -64,7 +64,7 @@ public class JobController {
     public ResultMessageBean cancelLikeJob(String phone, String jobId) {
 
         System.out.println("like "+phone+" "+jobId);
-        return jobBLService.cancelLikeJob(phone,jobId);
+        return jobService.cancelLikeJob(phone,jobId);
 
     }
 
@@ -80,7 +80,7 @@ public class JobController {
     @PostMapping("/dislike")
     public ResultMessageBean dislikeJob(String phone, String jobId) {
         System.out.println("dislike "+phone+" "+jobId);
-        return jobBLService.dislikeJob(phone,jobId);
+        return jobService.dislikeJob(phone,jobId);
 
     }
 
@@ -97,7 +97,7 @@ public class JobController {
     @PostMapping("/scan")
     public ResultMessageBean scanJob(String phone, String jobId) {
         System.out.println("scan "+phone+" "+jobId);
-        return jobBLService.scanJob(phone,jobId);
+        return jobService.scanJob(phone,jobId);
 
     }
 
@@ -113,7 +113,7 @@ public class JobController {
     @PostMapping("/like/display")
     public ResultMessageBean getLikedJob(String phone, String jobId) {
 
-        return jobBLService.scanJob(phone,jobId);
+        return jobService.scanJob(phone,jobId);
 
     }
 
