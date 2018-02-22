@@ -2,7 +2,7 @@ package youth.blservice;
 
 import youth.bean.ResultMessageBean;
 
-public interface JobService {
+public interface JobBLService {
 
 /*
 * @author:MAX

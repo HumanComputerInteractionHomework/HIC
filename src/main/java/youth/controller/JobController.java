@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.ResultMessageBean;
 
-import youth.blservice.JobService;
-import youth.blservice.UserBLService;
+import youth.blservice.JobBLService;
 
 
 /*
@@ -24,10 +23,10 @@ import youth.blservice.UserBLService;
 public class JobController {
 
     @Autowired
-    private  JobService jobService;
+    private JobBLService jobBLService;
     @Autowired
-    public JobController(JobService jobService){
-        this.jobService=jobService;
+    public JobController(JobBLService jobBLService){
+        this.jobBLService = jobBLService;
 
     }
 
@@ -46,7 +45,7 @@ public class JobController {
     public ResultMessageBean likeJob(String phone, String jobId) {
 
         System.out.println("like "+phone+" "+jobId);
-        return jobService.likeJob(phone,jobId);
+        return jobBLService.likeJob(phone,jobId);
 
     }
 
@@ -65,7 +64,7 @@ public class JobController {
     public ResultMessageBean cancelLikeJob(String phone, String jobId) {
 
         System.out.println("like "+phone+" "+jobId);
-        return jobService.cancelLikeJob(phone,jobId);
+        return jobBLService.cancelLikeJob(phone,jobId);
 
     }
 
@@ -81,7 +80,7 @@ public class JobController {
     @PostMapping("/dislike")
     public ResultMessageBean dislikeJob(String phone, String jobId) {
         System.out.println("dislike "+phone+" "+jobId);
-        return jobService.dislikeJob(phone,jobId);
+        return jobBLService.dislikeJob(phone,jobId);
 
     }
 
@@ -98,7 +97,7 @@ public class JobController {
     @PostMapping("/scan")
     public ResultMessageBean scanJob(String phone, String jobId) {
         System.out.println("scan "+phone+" "+jobId);
-        return jobService.scanJob(phone,jobId);
+        return jobBLService.scanJob(phone,jobId);
 
     }
 
@@ -114,7 +113,7 @@ public class JobController {
     @PostMapping("/like/display")
     public ResultMessageBean getLikedJob(String phone, String jobId) {
 
-        return jobService.scanJob(phone,jobId);
+        return jobBLService.scanJob(phone,jobId);
 
     }
 

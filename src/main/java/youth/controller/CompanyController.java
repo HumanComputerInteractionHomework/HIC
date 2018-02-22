@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import youth.bean.CompanyRemarkBean;
-import youth.bean.JobDetailBean;
-import youth.bean.JobExperienceBean;
-import youth.bean.ResultMessageBean;
+import youth.bean.*;
 import youth.blservice.CompanyBLService;
 
 import java.util.List;
@@ -91,10 +88,11 @@ public class CompanyController {
 
     })
     @PostMapping("/interview/remark")
-    public ResultMessageBean interviewRemark(String phone,String company,String result, int difficulty,int feeling,String remark) {
+    public ResultMessageBean interviewRemark(String phone,String company,String result,
+                                             int difficulty,int feeling,String remark) {
 
 
-        return null;
+        return companyBLService.interviewRemark(phone, company, result, difficulty, feeling, remark);
 
     }
 
@@ -110,24 +108,24 @@ public class CompanyController {
 
     })
     @PostMapping("/interview/remark/get")
-    public ResultMessageBean getInterviewRemark(String company) {
+    public CompanyInterviewRemarkBean getInterviewRemark(String company) {
 
 
-        return null;
+        return companyBLService.getInterviewRemark(company);
 
     }
 
 
     /**
-     得到公司具体信息
+     得到工作具体信息
      */
     @ResponseBody
     @RequestMapping(
             value = "/jobDetail/{jobId}",
             method = RequestMethod.GET,
             produces = {"application/json; charset=UTF-8"})
-    public JobDetailBean findSocialNetworkByManagerId(@PathVariable String jobId){
-        return null;
+    public JobDetailBean getJobDetailByJobId(@PathVariable String jobId){
+        return companyBLService.getJobDetailByJobId(jobId);
     }
 
 

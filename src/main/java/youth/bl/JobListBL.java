@@ -1,6 +1,6 @@
 package youth.bl;
 
-public class JobListServiceBL {
+public class JobListBL {
 
 /*
 * @author:MAX
