@@ -2,7 +2,7 @@ package youth.bl;
 
 import org.springframework.stereotype.Service;
 import youth.bean.ResultMessageBean;
-import youth.blservice.JobService;
+import youth.blservice.JobBLService;
 import youth.dao.DislikedJobRepository;
 import youth.dao.LikedJobRepository;
 import youth.dao.ScannedJobRepository;
@@ -13,7 +13,7 @@ import youth.model.ScannedJob;
 * @author:MAX
 */
 @Service
-public class JobServiceBL implements JobService{
+public class JobBL implements JobBLService {
     private final LikedJobRepository likedJobRepository;
     private final DislikedJobRepository dislikedJobRepository;
     private final ScannedJobRepository scannedJobRepository;
@@ -21,8 +21,8 @@ public class JobServiceBL implements JobService{
 
 
 
-    public JobServiceBL(LikedJobRepository likedJobRepository,DislikedJobRepository dislikedJobRepository,
-                        ScannedJobRepository scannedJobRepository){
+    public JobBL(LikedJobRepository likedJobRepository, DislikedJobRepository dislikedJobRepository,
+                 ScannedJobRepository scannedJobRepository){
         this.likedJobRepository=likedJobRepository;
         this.dislikedJobRepository=dislikedJobRepository;
         this.scannedJobRepository=scannedJobRepository;

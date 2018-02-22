@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.ResultMessageBean;
 
-import youth.blservice.JobService;
-import youth.blservice.UserBLService;
+import youth.blservice.JobBLService;
 
 
 /*
@@ -24,9 +23,9 @@ import youth.blservice.UserBLService;
 public class JobController {
 
     @Autowired
-    private  JobService jobService;
+    private JobBLService jobService;
     @Autowired
-    public JobController(JobService jobService){
+    public JobController(JobBLService jobService){
         this.jobService=jobService;
 
     }

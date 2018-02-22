@@ -1,12 +1,12 @@
 package youth.blservice;
 
 import youth.bean.ResultMessageBean;
-
-public interface JobService {
-
 /*
 * @author:MAX
 */
+public interface JobBLService {
+
+
 
 
     public ResultMessageBean scanJob(String phone, String jobId);
