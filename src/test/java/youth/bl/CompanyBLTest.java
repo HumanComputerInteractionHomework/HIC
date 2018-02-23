@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import youth.blservice.CompanyBLService;
+import youth.dao.JobDetailRepository;
 
 import static org.junit.Assert.*;
 
@@ -15,6 +16,19 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyBLTest {
+    @Test
+    public void getJobDetailByJobId() throws Exception {
+        System.out.println(companyBLService.getJobDetailByJobId("39047799"));
+    }
+    @Test
+    public void testMy() throws Exception {
+        System.out.println("【开始】");
+        System.out.println(jobDetailRepository.findByJobId("39047799"));
+    }
+
+    @Autowired
+    private JobDetailRepository jobDetailRepository;
+
     @Autowired
     private CompanyBLService companyBLService;
 

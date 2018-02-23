@@ -7,54 +7,93 @@ import javax.persistence.*;
 /*
 * @author:MAX
 */
-@Data
+
 @Entity
 @Table(name = "job2_0")
 public class JobDetail {
 
-
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     @Id
+    private Integer id;
+
+    @Column(name = "job_id")
     private String jobId;
-
+    @Column(name = "job_name")
     private String jobName;
-
+    @Column(name = "job_location")
     private String jobLocation;
-
+    @Column(name = "salary")
     private String salary;
-
+    @Column(name = "company_name")
     private String companyName;
-
+    @Column(name = "company_nature")
     private String companyNature;
-
+    @Column(name = "company_people_num")
     private String companyPeopleNum;
-
+    @Column(name = "company_industory")
     private String companyIndustory;
-
+    @Column(name = "job_experience")
     private String jobExperience;
 
-
-    private String Education_degree;
-
-    private String JobPeopleNum;
-
+    @Column(name = "education_degree")
+    private String educationDegree;
+    @Column(name = "job_people_num")
+    private String jobPeopleNum;
+    @Column(name = "job_time")
     private String jobTime;
-
+    @Column(name = "welfare")
     private String welfare;
-
+    @Column(name = "job_description")
     private String jobDescription;
+    @Column(name = "company_description")
+    private String companyDescription;
+    @Column(name = "job_description_html")
+    private String jobDescriptionHtml;
+    @Column(name = "company_description_html")
+    private String companyDescriptionHtml;
+    @Column(name = "job_city")
+    private String jobCity;
+    @Column(name = "salary_low")
+    private Integer salaryLow;
+    @Column(name = "salary_high")
+    private Integer salaryHigh;
 
-    private String CompanyDescription;
+    public JobDetail(){
 
-    private String JobDescriptionHtml;
+    }
 
-    private String company_description_html;
+    public JobDetail(String jobId, String jobName, String jobLocation, String salary, String companyName, String companyNature, String companyPeopleNum, String companyIndustory, String jobExperience, String educationDegree, String jobPeopleNum, String jobTime, String welfare, String jobDescription, String companyDescription, String jobDescriptionHtml, String companyDescriptionHtml, String jobCity, Integer salaryLow, Integer salaryHigh) {
+        this.jobId = jobId;
+        this.jobName = jobName;
+        this.jobLocation = jobLocation;
+        this.salary = salary;
+        this.companyName = companyName;
+        this.companyNature = companyNature;
+        this.companyPeopleNum = companyPeopleNum;
+        this.companyIndustory = companyIndustory;
+        this.jobExperience = jobExperience;
+        this.educationDegree = educationDegree;
+        this.jobPeopleNum = jobPeopleNum;
+        this.jobTime = jobTime;
+        this.welfare = welfare;
+        this.jobDescription = jobDescription;
+        this.companyDescription = companyDescription;
+        this.jobDescriptionHtml = jobDescriptionHtml;
+        this.companyDescriptionHtml = companyDescriptionHtml;
+        this.jobCity = jobCity;
+        this.salaryLow = salaryLow;
+        this.salaryHigh = salaryHigh;
+    }
 
-    private String job_city;
 
-    private Integer salary_low;
+    public Integer getId() {
+        return id;
+    }
 
-    private Integer salary_high;
-
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getJobId() {
         return jobId;
@@ -128,20 +167,20 @@ public class JobDetail {
         this.jobExperience = jobExperience;
     }
 
-    public String getEducation_degree() {
-        return Education_degree;
+    public String getEducationDegree() {
+        return educationDegree;
     }
 
-    public void setEducation_degree(String education_degree) {
-        Education_degree = education_degree;
+    public void setEducationDegree(String educationDegree) {
+        this.educationDegree = educationDegree;
     }
 
     public String getJobPeopleNum() {
-        return JobPeopleNum;
+        return jobPeopleNum;
     }
 
     public void setJobPeopleNum(String jobPeopleNum) {
-        JobPeopleNum = jobPeopleNum;
+        this.jobPeopleNum = jobPeopleNum;
     }
 
     public String getJobTime() {
@@ -169,51 +208,78 @@ public class JobDetail {
     }
 
     public String getCompanyDescription() {
-        return CompanyDescription;
+        return companyDescription;
     }
 
     public void setCompanyDescription(String companyDescription) {
-        CompanyDescription = companyDescription;
+        this.companyDescription = companyDescription;
     }
 
     public String getJobDescriptionHtml() {
-        return JobDescriptionHtml;
+        return jobDescriptionHtml;
     }
 
     public void setJobDescriptionHtml(String jobDescriptionHtml) {
-        JobDescriptionHtml = jobDescriptionHtml;
+        this.jobDescriptionHtml = jobDescriptionHtml;
     }
 
-    public String getCompany_description_html() {
-        return company_description_html;
+    public String getCompanyDescriptionHtml() {
+        return companyDescriptionHtml;
     }
 
-    public void setCompany_description_html(String company_description_html) {
-        this.company_description_html = company_description_html;
+    public void setCompanyDescriptionHtml(String companyDescriptionHtml) {
+        this.companyDescriptionHtml = companyDescriptionHtml;
     }
 
-    public String getJob_city() {
-        return job_city;
+    public String getJobCity() {
+        return jobCity;
     }
 
-    public void setJob_city(String job_city) {
-        this.job_city = job_city;
+    public void setJobCity(String jobCity) {
+        this.jobCity = jobCity;
     }
 
-    public Integer getSalary_low() {
-        return salary_low;
+    public Integer getSalaryLow() {
+        return salaryLow;
     }
 
-    public void setSalary_low(Integer salary_low) {
-        this.salary_low = salary_low;
+    public void setSalaryLow(Integer salaryLow) {
+        this.salaryLow = salaryLow;
     }
 
-    public Integer getSalary_high() {
-        return salary_high;
+    public Integer getSalaryHigh() {
+        return salaryHigh;
     }
 
-    public void setSalary_high(Integer salary_high) {
-        this.salary_high = salary_high;
+    public void setSalaryHigh(Integer salaryHigh) {
+        this.salaryHigh = salaryHigh;
+    }
+
+    @Override
+    public String toString() {
+        return "JobDetail{" +
+                "id=" + id +
+                ", jobId='" + jobId + '\'' +
+                ", jobName='" + jobName + '\'' +
+                ", jobLocation='" + jobLocation + '\'' +
+                ", salary='" + salary + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", companyNature='" + companyNature + '\'' +
+                ", companyPeopleNum='" + companyPeopleNum + '\'' +
+                ", companyIndustory='" + companyIndustory + '\'' +
+                ", jobExperience='" + jobExperience + '\'' +
+                ", educationDegree='" + educationDegree + '\'' +
+                ", jobPeopleNum='" + jobPeopleNum + '\'' +
+                ", jobTime='" + jobTime + '\'' +
+                ", welfare='" + welfare + '\'' +
+                ", jobDescription='" + jobDescription + '\'' +
+                ", companyDescription='" + companyDescription + '\'' +
+                ", jobDescriptionHtml='" + jobDescriptionHtml + '\'' +
+                ", companyDescriptionHtml='" + companyDescriptionHtml + '\'' +
+                ", jobCity='" + jobCity + '\'' +
+                ", salaryLow=" + salaryLow +
+                ", salaryHigh=" + salaryHigh +
+                '}';
     }
 }
 

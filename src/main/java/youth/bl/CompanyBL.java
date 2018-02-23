@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import youth.bean.*;
 import youth.blservice.CompanyBLService;
-import youth.blservice.UserBLService;
 import youth.dao.*;
 import youth.model.*;
 
@@ -24,6 +23,15 @@ public class CompanyBL implements CompanyBLService {
 
     @Autowired
     private SingleCompanyRemarkRepository singleCompanyRemarkRepository;
+
+    @Autowired
+    private CompanyInterviewRemarkRepository companyInterviewRemarkRepository;
+
+    @Autowired
+    private SingleInterviewRemarkRepository singleInterviewRemarkRepository;
+
+    @Autowired
+    private JobDetailRepository jobDetailRepository;
 
 
     @Override
@@ -98,6 +106,77 @@ public class CompanyBL implements CompanyBLService {
         companyRemarkBean.setSingleCompanyRemarkBeans(beansList);
 
         return companyRemarkBean;
+    }
 
+    @Override
+    public ResultMessageBean interviewRemark(String phone, String company, String result,
+                                             int difficulty, int feeling, String remark) {
+        //更新single_interview_remark表
+        SingleInterviewRemark s=new SingleInterviewRemark
+                (phone,company,result,difficulty,feeling,remark);
+        try {
+            singleInterviewRemarkRepository.save(s);
+        } catch (Exception e) {
+            return new ResultMessageBean(false, "填写面试评价信息失败");
+        }
+
+        //更新company_interview_remark表
+        List<SingleInterviewRemark> list=singleInterviewRemarkRepository.findByCompany(company);
+        double avgDifficulty=0.0;
+        double avgFeeling=0.0;
+
+
+        for(SingleInterviewRemark singleInterviewRemark:list){
+            avgDifficulty+=singleInterviewRemark.getDifficulty();
+            avgFeeling+=singleInterviewRemark.getFeeling();
+        }
+        avgDifficulty/=list.size();
+        avgFeeling/=list.size();
+
+        CompanyInterviewRemark companyInterviewRemark=new CompanyInterviewRemark(company,avgDifficulty,avgFeeling);
+        try {
+            //先删除再插入=更新
+            companyInterviewRemarkRepository.deleteByCompany(company);
+            companyInterviewRemarkRepository.save(companyInterviewRemark);
+        } catch (Exception e) {
+            return new ResultMessageBean(false, "填写面试评价信息失败");
+        }
+
+
+        return new ResultMessageBean(true);
+    }
+
+    @Override
+    public CompanyInterviewRemarkBean getInterviewRemark(String company) {
+        CompanyInterviewRemarkBean companyInterviewRemarkBean=new CompanyInterviewRemarkBean();
+        List<SingleInterviewRemark> list=singleInterviewRemarkRepository.findByCompany(company);
+        double avgDifficulty=0.0;
+        double avgFeeling=0.0;
+
+        List<SingleInterviewRemarkBean> beansList=new ArrayList<SingleInterviewRemarkBean>();
+
+        for(SingleInterviewRemark singleInterviewRemark:list){
+            SingleInterviewRemarkBean singleInterviewRemarkBean=new SingleInterviewRemarkBean();
+            BeanUtils.copyProperties(singleInterviewRemark,singleInterviewRemarkBean);
+            beansList.add(singleInterviewRemarkBean);
+            avgDifficulty+=singleInterviewRemark.getDifficulty();
+            avgFeeling+=singleInterviewRemark.getFeeling();
+        }
+        avgDifficulty/=list.size();
+        avgFeeling/=list.size();
+
+        companyInterviewRemarkBean.setCompany(company);
+        companyInterviewRemarkBean.setAvgDifficulty(avgDifficulty);
+        companyInterviewRemarkBean.setAvgFeeling(avgFeeling);
+        companyInterviewRemarkBean.setSingleInterviewRemarkBeans(beansList);
+
+        return companyInterviewRemarkBean;
+    }
+
+    @Override
+    public JobDetailBean getJobDetailByJobId(String jobId) {
+        JobDetailBean jobDetailBean=new JobDetailBean();
+        BeanUtils.copyProperties(jobDetailRepository.findByJobId(jobId),jobDetailBean);
+        return jobDetailBean;
     }
 }

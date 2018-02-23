@@ -28,29 +28,23 @@ public class JobDetailBean {
 
     private String jobExperience;
 
+    private String educationDegree;
 
-    private String Education_degree;
-
-    private String JobPeopleNum;
+    private String jobPeopleNum;
 
     private String jobTime;
 
     private String welfare;
 
-    private String jobDescription;
+    private String jobDescriptionHtml;
 
-    private String CompanyDescription;
+    private String companyDescriptionHtml;
 
-    private String JobDescriptionHtml;
+    private String jobCity;
 
-    private String company_description_html;
+    private Integer salaryLow;
 
-    private String job_city;
-
-    private Integer salary_low;
-
-    private Integer salary_high;
-
+    private Integer salaryHigh;
 
     public String getJobId() {
         return jobId;
@@ -124,20 +118,20 @@ public class JobDetailBean {
         this.jobExperience = jobExperience;
     }
 
-    public String getEducation_degree() {
-        return Education_degree;
+    public String getEducationDegree() {
+        return educationDegree;
     }
 
-    public void setEducation_degree(String education_degree) {
-        Education_degree = education_degree;
+    public void setEducationDegree(String educationDegree) {
+        this.educationDegree = educationDegree;
     }
 
     public String getJobPeopleNum() {
-        return JobPeopleNum;
+        return jobPeopleNum;
     }
 
     public void setJobPeopleNum(String jobPeopleNum) {
-        JobPeopleNum = jobPeopleNum;
+        this.jobPeopleNum = jobPeopleNum;
     }
 
     public String getJobTime() {
@@ -156,60 +150,93 @@ public class JobDetailBean {
         this.welfare = welfare;
     }
 
-    public String getJobDescription() {
-        return jobDescription;
-    }
-
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
-    }
-
-    public String getCompanyDescription() {
-        return CompanyDescription;
-    }
-
-    public void setCompanyDescription(String companyDescription) {
-        CompanyDescription = companyDescription;
-    }
-
     public String getJobDescriptionHtml() {
-        return JobDescriptionHtml;
+        return jobDescriptionHtml;
     }
 
     public void setJobDescriptionHtml(String jobDescriptionHtml) {
-        JobDescriptionHtml = jobDescriptionHtml;
+        this.jobDescriptionHtml = jobDescriptionHtml;
     }
 
-    public String getCompany_description_html() {
-        return company_description_html;
+    public String getCompanyDescriptionHtml() {
+        return companyDescriptionHtml;
     }
 
-    public void setCompany_description_html(String company_description_html) {
-        this.company_description_html = company_description_html;
+    public void setCompanyDescriptionHtml(String companyDescriptionHtml) {
+        this.companyDescriptionHtml = companyDescriptionHtml;
     }
 
-    public String getJob_city() {
-        return job_city;
+    public String getJobCity() {
+        return jobCity;
     }
 
-    public void setJob_city(String job_city) {
-        this.job_city = job_city;
+    public void setJobCity(String jobCity) {
+        this.jobCity = jobCity;
     }
 
-    public Integer getSalary_low() {
-        return salary_low;
+    public Integer getSalaryLow() {
+        return salaryLow;
     }
 
-    public void setSalary_low(Integer salary_low) {
-        this.salary_low = salary_low;
+    public void setSalaryLow(Integer salaryLow) {
+        this.salaryLow = salaryLow;
     }
 
-    public Integer getSalary_high() {
-        return salary_high;
+    public Integer getSalaryHigh() {
+        return salaryHigh;
     }
 
-    public void setSalary_high(Integer salary_high) {
-        this.salary_high = salary_high;
+    public void setSalaryHigh(Integer salaryHigh) {
+        this.salaryHigh = salaryHigh;
+    }
+
+    public JobDetailBean(){
+
+    }
+
+    public JobDetailBean(String jobId, String jobName, String jobLocation, String salary, String companyName, String companyNature, String companyPeopleNum, String companyIndustory, String jobExperience, String educationDegree, String jobPeopleNum, String jobTime, String welfare, String jobDescriptionHtml, String companyDescriptionHtml, String jobCity, Integer salaryLow, Integer salaryHigh) {
+        this.jobId = jobId;
+        this.jobName = jobName;
+        this.jobLocation = jobLocation;
+        this.salary = salary;
+        this.companyName = companyName;
+        this.companyNature = companyNature;
+        this.companyPeopleNum = companyPeopleNum;
+        this.companyIndustory = companyIndustory;
+        this.jobExperience = jobExperience;
+        this.educationDegree = educationDegree;
+        this.jobPeopleNum = jobPeopleNum;
+        this.jobTime = jobTime;
+        this.welfare = welfare;
+        this.jobDescriptionHtml = jobDescriptionHtml;
+        this.companyDescriptionHtml = companyDescriptionHtml;
+        this.jobCity = jobCity;
+        this.salaryLow = salaryLow;
+        this.salaryHigh = salaryHigh;
+    }
+
+    @Override
+    public String toString() {
+        return "JobDetailBean{" +
+                "jobId='" + jobId + '\'' +
+                ", jobName='" + jobName + '\'' +
+                ", jobLocation='" + jobLocation + '\'' +
+                ", salary='" + salary + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", companyNature='" + companyNature + '\'' +
+                ", companyPeopleNum='" + companyPeopleNum + '\'' +
+                ", companyIndustory='" + companyIndustory + '\'' +
+                ", jobExperience='" + jobExperience + '\'' +
+                ", educationDegree='" + educationDegree + '\'' +
+                ", jobPeopleNum='" + jobPeopleNum + '\'' +
+                ", jobTime='" + jobTime + '\'' +
+                ", welfare='" + welfare + '\'' +
+                ", jobDescriptionHtml='" + jobDescriptionHtml + '\'' +
+                ", companyDescriptionHtml='" + companyDescriptionHtml + '\'' +
+                ", jobCity='" + jobCity + '\'' +
+                ", salaryLow=" + salaryLow +
+                ", salaryHigh=" + salaryHigh +
+                '}';
     }
 }
 
