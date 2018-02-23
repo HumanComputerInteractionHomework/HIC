@@ -5,7 +5,7 @@ package youth.bean;
 */
 public class CompetitivePowerBean {
 
-    private
+
 
 
 
