@@ -12,8 +12,7 @@ import javax.persistence.*;
 @Table(name = "job2_0")
 public class JobDetail {
 
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id")
+
     @Id
     private Integer id;
 
@@ -31,8 +30,8 @@ public class JobDetail {
     private String companyNature;
     @Column(name = "company_people_num")
     private String companyPeopleNum;
-    @Column(name = "company_industry")
-    private String companyIndustry;
+    @Column(name = "company_industory")
+    private String companyIndustory;
     @Column(name = "job_experience")
     private String jobExperience;
 
@@ -59,19 +58,11 @@ public class JobDetail {
     @Column(name = "salary_high")
     private Integer salaryHigh;
 
-    @Column(name = "company_people_num_low")
-    private Integer companyPeopleNumLow;
-
-    @Column(name = "company_people_num_high")
-    private Integer companyPeopleNumHigh;
-
-
-
     public JobDetail(){
 
     }
 
-    public JobDetail(String jobId, String jobName, String jobLocation, String salary, String companyName, String companyNature, String companyPeopleNum, String companyIndustry, String jobExperience, String educationDegree, String jobPeopleNum, String jobTime, String welfare, String jobDescription, String companyDescription, String jobDescriptionHtml, String companyDescriptionHtml, String jobCity, Integer salaryLow, Integer salaryHigh, Integer companyPeopleNumLow, Integer companyPeopleNumHigh) {
+    public JobDetail(String jobId, String jobName, String jobLocation, String salary, String companyName, String companyNature, String companyPeopleNum, String companyIndustory, String jobExperience, String educationDegree, String jobPeopleNum, String jobTime, String welfare, String jobDescription, String companyDescription, String jobDescriptionHtml, String companyDescriptionHtml, String jobCity, Integer salaryLow, Integer salaryHigh) {
         this.jobId = jobId;
         this.jobName = jobName;
         this.jobLocation = jobLocation;
@@ -79,7 +70,7 @@ public class JobDetail {
         this.companyName = companyName;
         this.companyNature = companyNature;
         this.companyPeopleNum = companyPeopleNum;
-        this.companyIndustry = companyIndustry;
+        this.companyIndustory = companyIndustory;
         this.jobExperience = jobExperience;
         this.educationDegree = educationDegree;
         this.jobPeopleNum = jobPeopleNum;
@@ -92,8 +83,6 @@ public class JobDetail {
         this.jobCity = jobCity;
         this.salaryLow = salaryLow;
         this.salaryHigh = salaryHigh;
-        this.companyPeopleNumLow = companyPeopleNumLow;
-        this.companyPeopleNumHigh = companyPeopleNumHigh;
     }
 
 
@@ -161,12 +150,12 @@ public class JobDetail {
         this.companyPeopleNum = companyPeopleNum;
     }
 
-    public String getCompanyIndustry() {
-        return companyIndustry;
+    public String getCompanyIndustory() {
+        return companyIndustory;
     }
 
-    public void setCompanyIndustry(String companyIndustry) {
-        this.companyIndustry = companyIndustry;
+    public void setCompanyIndustory(String companyIndustory) {
+        this.companyIndustory = companyIndustory;
     }
 
     public String getJobExperience() {
@@ -265,22 +254,6 @@ public class JobDetail {
         this.salaryHigh = salaryHigh;
     }
 
-    public Integer getCompanyPeopleNumLow() {
-        return companyPeopleNumLow;
-    }
-
-    public void setCompanyPeopleNumLow(Integer companyPeopleNumLow) {
-        this.companyPeopleNumLow = companyPeopleNumLow;
-    }
-
-    public Integer getCompanyPeopleNumHigh() {
-        return companyPeopleNumHigh;
-    }
-
-    public void setCompanyPeopleNumHigh(Integer companyPeopleNumHigh) {
-        this.companyPeopleNumHigh = companyPeopleNumHigh;
-    }
-
     @Override
     public String toString() {
         return "JobDetail{" +
@@ -292,7 +265,7 @@ public class JobDetail {
                 ", companyName='" + companyName + '\'' +
                 ", companyNature='" + companyNature + '\'' +
                 ", companyPeopleNum='" + companyPeopleNum + '\'' +
-                ", companyIndustry='" + companyIndustry + '\'' +
+                ", companyIndustory='" + companyIndustory + '\'' +
                 ", jobExperience='" + jobExperience + '\'' +
                 ", educationDegree='" + educationDegree + '\'' +
                 ", jobPeopleNum='" + jobPeopleNum + '\'' +
@@ -305,8 +278,6 @@ public class JobDetail {
                 ", jobCity='" + jobCity + '\'' +
                 ", salaryLow=" + salaryLow +
                 ", salaryHigh=" + salaryHigh +
-                ", companyPeopleNumLow=" + companyPeopleNumLow +
-                ", companyPeopleNumHigh=" + companyPeopleNumHigh +
                 '}';
     }
 }

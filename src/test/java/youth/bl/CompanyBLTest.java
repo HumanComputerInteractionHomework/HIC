@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 public class CompanyBLTest {
     @Test
     public void getJobDetailByJobId() throws Exception {
-        System.out.println(companyBLService.getJobDetailByJobId("39663835"));
+        System.out.println(companyBLService.getJobDetailByJobId("39047799"));
     }
     @Test
     public void testMy() throws Exception {
