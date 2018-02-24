@@ -179,4 +179,5 @@ public class CompanyBL implements CompanyBLService {
         BeanUtils.copyProperties(jobDetailRepository.findByJobId(jobId),jobDetailBean);
         return jobDetailBean;
     }
+
 }

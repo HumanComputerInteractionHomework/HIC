@@ -73,19 +73,16 @@ public class JobListController {
 
      */
 
-    @ApiOperation(value = "搜索职业", notes = "可能状态码：0,1,9<br>登录成功返回签名")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
-
-    })
-    @PostMapping("/recomand/get")
-    public List<JobListBean> searchJob(String phone) {
-        //return "hhh";
-        return jobListBLService.getRecomandJobList(phone);
-
-
-
-    }
+//    @ApiOperation(value = "搜索职业", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
+//
+//    })
+//    @PostMapping("/recomand/get")
+//    public List<JobListBean> searchJob(String phone) {
+//        //return "hhh";
+//        return jobListBLService.getRecomandJobList(phone);
+//}
 
 
 

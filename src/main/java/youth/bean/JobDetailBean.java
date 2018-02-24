@@ -8,6 +8,8 @@ import javax.persistence.*;
 * @author:MAX
 */
 
+
+
 public class JobDetailBean {
 
     private String jobId;
@@ -24,7 +26,7 @@ public class JobDetailBean {
 
     private String companyPeopleNum;
 
-    private String companyIndustory;
+    private String companyIndustry;
 
     private String jobExperience;
 
@@ -45,6 +47,11 @@ public class JobDetailBean {
     private Integer salaryLow;
 
     private Integer salaryHigh;
+
+    private Integer companyPeopleNumLow;
+
+    private Integer companyPeopleNumHigh;
+
 
     public String getJobId() {
         return jobId;
@@ -102,12 +109,12 @@ public class JobDetailBean {
         this.companyPeopleNum = companyPeopleNum;
     }
 
-    public String getCompanyIndustory() {
-        return companyIndustory;
+    public String getCompanyIndustry() {
+        return companyIndustry;
     }
 
-    public void setCompanyIndustory(String companyIndustory) {
-        this.companyIndustory = companyIndustory;
+    public void setCompanyIndustry(String companyIndustry) {
+        this.companyIndustry = companyIndustry;
     }
 
     public String getJobExperience() {
@@ -190,11 +197,27 @@ public class JobDetailBean {
         this.salaryHigh = salaryHigh;
     }
 
+    public Integer getCompanyPeopleNumLow() {
+        return companyPeopleNumLow;
+    }
+
+    public void setCompanyPeopleNumLow(Integer companyPeopleNumLow) {
+        this.companyPeopleNumLow = companyPeopleNumLow;
+    }
+
+    public Integer getCompanyPeopleNumHigh() {
+        return companyPeopleNumHigh;
+    }
+
+    public void setCompanyPeopleNumHigh(Integer companyPeopleNumHigh) {
+        this.companyPeopleNumHigh = companyPeopleNumHigh;
+    }
+
     public JobDetailBean(){
 
     }
 
-    public JobDetailBean(String jobId, String jobName, String jobLocation, String salary, String companyName, String companyNature, String companyPeopleNum, String companyIndustory, String jobExperience, String educationDegree, String jobPeopleNum, String jobTime, String welfare, String jobDescriptionHtml, String companyDescriptionHtml, String jobCity, Integer salaryLow, Integer salaryHigh) {
+    public JobDetailBean(String jobId, String jobName, String jobLocation, String salary, String companyName, String companyNature, String companyPeopleNum, String companyIndustry, String jobExperience, String educationDegree, String jobPeopleNum, String jobTime, String welfare, String jobDescriptionHtml, String companyDescriptionHtml, String jobCity, Integer salaryLow, Integer salaryHigh, Integer companyPeopleNumLow, Integer companyPeopleNumHigh) {
         this.jobId = jobId;
         this.jobName = jobName;
         this.jobLocation = jobLocation;
@@ -202,7 +225,7 @@ public class JobDetailBean {
         this.companyName = companyName;
         this.companyNature = companyNature;
         this.companyPeopleNum = companyPeopleNum;
-        this.companyIndustory = companyIndustory;
+        this.companyIndustry = companyIndustry;
         this.jobExperience = jobExperience;
         this.educationDegree = educationDegree;
         this.jobPeopleNum = jobPeopleNum;
@@ -213,6 +236,8 @@ public class JobDetailBean {
         this.jobCity = jobCity;
         this.salaryLow = salaryLow;
         this.salaryHigh = salaryHigh;
+        this.companyPeopleNumLow = companyPeopleNumLow;
+        this.companyPeopleNumHigh = companyPeopleNumHigh;
     }
 
     @Override
@@ -225,7 +250,7 @@ public class JobDetailBean {
                 ", companyName='" + companyName + '\'' +
                 ", companyNature='" + companyNature + '\'' +
                 ", companyPeopleNum='" + companyPeopleNum + '\'' +
-                ", companyIndustory='" + companyIndustory + '\'' +
+                ", companyIndustry='" + companyIndustry + '\'' +
                 ", jobExperience='" + jobExperience + '\'' +
                 ", educationDegree='" + educationDegree + '\'' +
                 ", jobPeopleNum='" + jobPeopleNum + '\'' +
@@ -236,6 +261,8 @@ public class JobDetailBean {
                 ", jobCity='" + jobCity + '\'' +
                 ", salaryLow=" + salaryLow +
                 ", salaryHigh=" + salaryHigh +
+                ", companyPeopleNumLow=" + companyPeopleNumLow +
+                ", companyPeopleNumHigh=" + companyPeopleNumHigh +
                 '}';
     }
 }
