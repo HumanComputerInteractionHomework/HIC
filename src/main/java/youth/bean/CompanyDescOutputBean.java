@@ -3,6 +3,7 @@ package youth.bean;
 import java.util.List;
 
 
+
 public class CompanyDescOutputBean {
 
 /*
