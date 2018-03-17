@@ -5,11 +5,13 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.JobListBean;
 import youth.bean.ResultMessageBean;
+import youth.bean.SearchBean;
 import youth.blservice.JobBLService;
 import youth.blservice.JobListBLService;
 
@@ -68,27 +70,46 @@ public class JobListController {
 
     }
 
-       /*
-    搜索职业
+//       /*
+//    搜索职业
+//
+//     */
+//
+    @ApiOperation(value = "搜索职业", notes = "可能状态码：0,1,9<br>登录成功返回签名")
 
+    @PostMapping("/recomand/get")
+    public Page<JobListBean> searchJob(SearchBean searchBean) {
+        //return "hhh";
+        return null;
+}
+
+
+
+
+
+
+
+
+
+     /*
+    模糊搜索
      */
 
-//    @ApiOperation(value = "搜索职业", notes = "可能状态码：0,1,9<br>登录成功返回签名")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "phone", value = "手机号", required = true, dataType = "String"),
-//
-//    })
-//    @PostMapping("/recomand/get")
-//    public List<JobListBean> searchJob(String phone) {
-//        //return "hhh";
-//        return jobListBLService.getRecomandJobList(phone);
-//}
+    @ApiOperation(value = "模糊搜索", notes = "可能状态码：0,1,9<br>登录成功返回签名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "keyword", value = "关键词", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "page", value = "页码", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "num", value = "条数", required = true, dataType = "String"),
+
+    })
+    @PostMapping("/fuzzySearch")
+    public Page<JobListBean> search(String keyword,int page,int num) {
+        //return "hhh";
+        return null;
 
 
 
-
-
-
+    }
 
 
 
