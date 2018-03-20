@@ -176,7 +176,10 @@ public class CompanyBL implements CompanyBLService {
     @Override
     public JobDetailBean getJobDetailByJobId(String jobId) {
         JobDetailBean jobDetailBean=new JobDetailBean();
-        BeanUtils.copyProperties(jobDetailRepository.findByJobId(jobId),jobDetailBean);
+        JobDetail jobDetail=jobDetailRepository.findByJobId(jobId);
+        if(jobDetail!=null) {
+            BeanUtils.copyProperties(jobDetail, jobDetailBean);
+        }
         return jobDetailBean;
     }
 

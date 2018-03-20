@@ -6,7 +6,10 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.JobListBean;
@@ -15,6 +18,8 @@ import youth.bean.SearchBean;
 import youth.blservice.JobBLService;
 import youth.blservice.JobListBLService;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 /*
@@ -77,10 +82,10 @@ public class JobListController {
 //
     @ApiOperation(value = "搜索职业", notes = "可能状态码：0,1,9<br>登录成功返回签名")
 
-    @PostMapping("/recomand/get")
-    public Page<JobListBean> searchJob(SearchBean searchBean) {
+    @PostMapping("/job/search")
+    public util.Page<JobListBean> searchJob(@RequestBody SearchBean searchBean) {
         //return "hhh";
-        return null;
+        return jobListBLService.searchJob(searchBean);
 }
 
 
@@ -103,14 +108,12 @@ public class JobListController {
 
     })
     @PostMapping("/fuzzySearch")
-    public Page<JobListBean> search(String keyword,int page,int num) {
+    public util.Page<JobListBean> search(String keyword, int page, int num) {
         //return "hhh";
-        return null;
-
+        return jobListBLService.search(keyword, page, num);
 
 
     }
-
 
 
 }

@@ -6,7 +6,6 @@ import lombok.Data;
 * @author:MAX
 * @note：职业列表信息
 */
-@Data
 public class JobListBean {
 
     private String jobId;
@@ -21,13 +20,6 @@ public class JobListBean {
 
     private Double matchingDegree;
 
-    public JobListBean(String jobId, String jobName, String companyName, String location, String salary) {
-        this.jobId = jobId;
-        this.jobName = jobName;
-        this.companyName = companyName;
-        this.jobLocation = location;
-        this.salary = salary;
-    }
 
     public JobListBean() {
 

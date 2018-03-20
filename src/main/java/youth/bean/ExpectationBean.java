@@ -8,7 +8,7 @@ import java.util.List;
 public class ExpectationBean {
 
 /*
-* @author:MAX
+* @author:lw
 */
     private String phone;
     private String salary;
