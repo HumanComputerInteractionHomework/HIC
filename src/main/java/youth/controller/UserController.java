@@ -1,6 +1,9 @@
 package youth.controller;
 
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.Api;
@@ -12,8 +15,14 @@ import youth.bean.JobExperienceBean;
 import youth.bean.ResultMessageBean;
 
 import youth.blservice.UserBLService;
+import youth.model.ExpectCompanyLevel;
+import youth.model.Skill;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 //访问：localhost:8080/user/hello，路径中不用加cloud
 @Api(value = "用户模块", description = "用户相关接口")
@@ -40,11 +49,10 @@ public class UserController {
 
     })
     @PostMapping("/login")
-    public ResultMessageBean login(String phone, String password) {
-        //return "hhh";
-        return userBLService.login(phone,password);
-
-
+    public ResultMessageBean login(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        return userBLService.login(m.get("phone"), m.get("password"));
     }
 
 
@@ -61,10 +69,11 @@ public class UserController {
 
     })
     @PostMapping("/sign-up")
-    public ResultMessageBean signUp(String phone, String password,String mail,String name) {
-
-
-        return userBLService.signUp(phone,password,mail,name);
+    public ResultMessageBean signUp(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        System.out.println(m.get("phone")+ m.get("password")+ m.get("mail")+ m.get("name"));
+        return userBLService.signUp(m.get("phone"), m.get("password"), m.get("mail"), m.get("name"));
 
 
     }
@@ -82,8 +91,6 @@ public class UserController {
     @PostMapping("/password")
     public ResultMessageBean editPassword(String phone, String password) {
        return userBLService.editPassword(phone,password);
-
-
     }
 
 
@@ -98,7 +105,13 @@ public class UserController {
             value = "/userBasicMessage",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveUserBasicMessage(@RequestBody UserBasicMessageBean userBasicMessageBean) {
+    public ResultMessageBean saveUserBasicMessage(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        UserBasicMessageBean userBasicMessageBean = new UserBasicMessageBean(m.get("phone"), m.get("realName"), m.get("birthday"),
+                m.get("gender"), m.get("address"), Double.parseDouble(m.get("jobYear")), m.get("salary"), Integer.parseInt(m.get("lowSalary")),
+                Integer.parseInt(m.get("highSalary")), Integer.parseInt(m.get("basicSalary")), Integer.parseInt(m.get("bonus")),
+                Integer.parseInt(m.get("Commission")), Integer.parseInt(m.get("stockShareOption")));
         return userBLService.saveUserBasicMessage(userBasicMessageBean);
     }
 
@@ -124,7 +137,18 @@ public class UserController {
             value = "/education",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveEducation(@RequestBody EducationBean educationBean) {
+    public ResultMessageBean saveEducation(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        List<HonorBean> honorBeans= new ArrayList<HonorBean>();
+        JSONArray ja = JSONArray.parseArray(m.get("honorBeans"));
+        for (int i =0; i < ja.size(); i++) {
+            JSONObject temp = ja.getJSONObject(i);
+            HonorBean honorBean = new HonorBean(m.get("phone"), temp.getString("honorName"), temp.getString("level"));
+            honorBeans.add(honorBean);
+        }
+        EducationBean educationBean = new EducationBean(m.get("phone"), m.get("educationDegree"), m.get("school"),
+                m.get("major"), m.get("fromTime"), m.get("toTime"), honorBeans );
         return userBLService.saveEducation(educationBean);
     }
 
@@ -151,7 +175,16 @@ public class UserController {
             value = "/projectExperience",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveProjectExperience(@RequestBody List<ProjectExperienceBean> projectExperienceBeans) {
+    public ResultMessageBean saveProjectExperience(@RequestBody String param) {
+        JSONArray ja = JSONArray.parseArray(param);
+        List<ProjectExperienceBean> projectExperienceBeans = new ArrayList<ProjectExperienceBean>();
+        for (int i =0; i < ja.size(); i++) {
+            JSONObject temp = ja.getJSONObject(i);
+            ProjectExperienceBean peb = new ProjectExperienceBean(temp.getString("phone"),temp.getString("name"),
+                    temp.getString("level"),temp.getString("fromTime"),temp.getString("toTime"),
+                    temp.getString("projectDescription"), temp.getString("mywork"));
+            projectExperienceBeans.add(peb);
+        }
         return userBLService.saveProjectExperience(projectExperienceBeans);
     }
 
@@ -180,7 +213,16 @@ public class UserController {
             value = "/jobExperience",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveJobExperience(@RequestBody List<JobExperienceBean> jobExperienceBeans) {
+    public ResultMessageBean saveJobExperience(@RequestBody String param) {
+        JSONArray ja = JSONArray.parseArray(param);
+        List<JobExperienceBean> jobExperienceBeans = new ArrayList<JobExperienceBean>();
+        for (int i =0; i < ja.size(); i++) {
+            JSONObject temp = ja.getJSONObject(i);
+            JobExperienceBean jeb = new JobExperienceBean(temp.getString("phone"), temp.getString("Companyname"),
+                    temp.getString("companyQuality"), temp.getString("companyLevel"), temp.getString("job"),
+                    temp.getString("fromTime"), temp.getString("toTime"), temp.getString("description"));
+            jobExperienceBeans.add(jeb);
+        }
         return userBLService.saveJobExperience(jobExperienceBeans);
 
     }
@@ -210,7 +252,15 @@ public class UserController {
             value = "/skill",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveSkill(@RequestBody List<SkillBean> skillBeans) {
+    public ResultMessageBean saveSkill(@RequestBody String param) {
+        JSONArray ja = JSONArray.parseArray(param);
+        List<SkillBean> skillBeans = new ArrayList<SkillBean>();
+        for (int i =0; i < ja.size(); i++) {
+            JSONObject temp = ja.getJSONObject(i);
+            SkillBean sb = new SkillBean(temp.getString("phone"), temp.getString("skillName"),temp.getString("degree"),
+                    temp.getString("certificate"),temp.getString("description"));
+            skillBeans.add(sb);
+        }
         return userBLService.saveSkill(skillBeans);
     }
 
@@ -237,7 +287,41 @@ public class UserController {
             value = "/expectation",
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
-    public ResultMessageBean saveExpectation(@RequestBody ExpectationBean expectationBean) {
+    public ResultMessageBean saveExpectation(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+
+        List<ExpectLocationBean> expectLocationBeans= new ArrayList<ExpectLocationBean>();
+        JSONArray ja1 = JSONArray.parseArray(m.get("expectLocationBeans"));
+        for (int i =0; i < ja1.size(); i++) {
+            JSONObject temp = ja1.getJSONObject(i);
+            ExpectLocationBean expectLocationBean = new ExpectLocationBean(temp.getString("phone"), temp.getString("expectLocation"));
+            expectLocationBeans.add(expectLocationBean);
+        }
+
+        List<ExpectCompanyQualityBean> expectCompanyQualityBeans= new ArrayList<ExpectCompanyQualityBean>();
+        JSONArray ja2 = JSONArray.parseArray(m.get("expectCompanyQualityBeans"));
+        for (int i =0; i < ja2.size(); i++) {
+            JSONObject temp = ja2.getJSONObject(i);
+            ExpectCompanyQualityBean expectCompanyQualityBean = new ExpectCompanyQualityBean(temp.getString("phone"), temp.getString("expectCompanyQuality"));
+            expectCompanyQualityBeans.add(expectCompanyQualityBean);
+        }
+
+        List<ExpectCompanyLevelBean> expectCompanyLevelBeans= new ArrayList<ExpectCompanyLevelBean>();
+        JSONArray ja3 = JSONArray.parseArray(m.get("expectCompanyLevelBeans"));
+        for (int i =0; i < ja3.size(); i++) {
+            JSONObject temp = ja3.getJSONObject(i);
+            ExpectCompanyLevelBean expectCompanyLevelBean = new ExpectCompanyLevelBean(temp.getString("phone"), temp.getString("expectCompanyLevel"));
+            expectCompanyLevelBeans.add(expectCompanyLevelBean);
+        }
+
+        List<ExpectJobTypeBean> expectJobTypeBeans= new ArrayList<ExpectJobTypeBean>();
+        expectJobTypeBeans.add(new ExpectJobTypeBean(m.get("phone"), m.get("jobType")));
+
+
+        ExpectationBean expectationBean =new ExpectationBean(m.get("phone"), m.get("salary"), Integer.parseInt(m.get("lowSalary").toString()),Integer.parseInt(m.get("highSalary").toString()),
+                expectLocationBeans, expectCompanyQualityBeans, expectCompanyLevelBeans, expectJobTypeBeans);
+        System.out.println(expectationBean.toString());
         return userBLService.saveExpectation(expectationBean);
     }
 
@@ -255,16 +339,16 @@ public class UserController {
     }
 
 
-
-
-
-
-    @RequestMapping("/hello")
-    public String say() {
-
-        return "Helloxixiix";
+    @RequestMapping("/home")
+    public String say(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/home.html");
+        return "/home";
     }
 
+   @RequestMapping("/sign-in")
+    public String signin() {
+       return "/page_signin.html";
+   }
 
 
 
