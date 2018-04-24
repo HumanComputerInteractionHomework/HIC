@@ -958,7 +958,7 @@ ul.service_box li.service_box-right p{
 
 .search_title {
     margin-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .search_title_main {
     font-family: "微软雅黑 Light";
@@ -1425,4 +1425,85 @@ ul.service_box li.service_box-right p{
 
 .rating-5-half .star-6 {
     border-left-color: #fff;
+}
+
+/*
+热词排行*/
+
+.heatList {
+    margin-left: 0px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.heatImage {
+    padding-right: 0px;
+    height: 470px;
+    margin-bottom: 20px;
+
+    border-left: solid #f1f1f1 1px;
+}
+.heat-title {
+    background: #f1f1f1;
+    height: 40px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.t51 {
+    color: #4682B4;
+    font-size: 18px;
+    float:left;
+    margin-top: 13px;
+    padding-left: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+.t52{
+    color: #4682B4;
+    font-size: 18px;
+    float: right;
+    padding-right: 5px;
+    margin-top: 13px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.t41 {
+    color: #808080;
+    font-size: 18px;
+    float:left;
+    margin-top: 13px;
+    padding-left: 15px;
+    line-height: 18px;
+    text-align: center;
+}
+.t44 {
+    color: #808080;
+    font-size: 18px;
+    float: right;
+    margin-top: 13px;
+    padding-right: 30px;
+    line-height: 18px;
+    text-align: center;
+}
+.result_content_item2 {
+    margin-top: 35px;
+    background: #fff;
+    display: block;
+    border-bottom: solid #f1f1f1 1px;
+    padding-bottom: 0px;
+}
+
+.result_content_item2 span{
+    color: #808080;
+    font-family: "微软雅黑 Light";
+    text-align: center;
+    display: inline-block;
+}
+#heatContent {
+    margin-left: 0px;
+    margin-right: 0px;
+    background: #fff;
+    padding-right: 15px;
 }

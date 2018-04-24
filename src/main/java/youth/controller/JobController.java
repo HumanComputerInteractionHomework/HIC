@@ -1,16 +1,20 @@
 package youth.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import youth.bean.ResultMessageBean;
 
 import youth.blservice.JobBLService;
+
+import java.util.Map;
 
 
 /*
@@ -27,7 +31,6 @@ public class JobController {
     @Autowired
     public JobController(JobBLService jobService){
         this.jobService=jobService;
-
     }
 
 
@@ -42,10 +45,11 @@ public class JobController {
 
     })
     @PostMapping("/like")
-    public ResultMessageBean likeJob(String phone, String jobId) {
-
-        System.out.println("like "+phone+" "+jobId);
-        return jobService.likeJob(phone,jobId);
+    public ResultMessageBean likeJob(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, Object> m=(Map<String, Object> )jo.parse(param);
+        System.out.println("like "+ (String)m.get("phone") + " " + (String) m.get("jobId"));
+        return jobService.likeJob((String)m.get("phone"), (String) m.get("jobId"));
 
     }
 
@@ -61,11 +65,11 @@ public class JobController {
 
     })
     @PostMapping("/like/cancel")
-    public ResultMessageBean cancelLikeJob(String phone, String jobId) {
-
-        System.out.println("like "+phone+" "+jobId);
-        return jobService.cancelLikeJob(phone,jobId);
-
+    public ResultMessageBean cancelLikeJob(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, Object> m=(Map<String, Object> )jo.parse(param);
+        System.out.println("cancel "+ (String)m.get("phone") + " " + (String) m.get("jobId"));
+        return jobService.cancelLikeJob((String)m.get("phone"), (String) m.get("jobId"));
     }
 
     /*
@@ -78,9 +82,11 @@ public class JobController {
 
     })
     @PostMapping("/dislike")
-    public ResultMessageBean dislikeJob(String phone, String jobId) {
-        System.out.println("dislike "+phone+" "+jobId);
-        return jobService.dislikeJob(phone,jobId);
+    public ResultMessageBean dislikeJob(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, Object> m=(Map<String, Object> )jo.parse(param);
+        System.out.println("dislike "+ (String)m.get("phone") + " " + (String) m.get("jobId"));
+        return jobService.dislikeJob((String)m.get("phone"), (String) m.get("jobId"));
 
     }
 
@@ -95,10 +101,11 @@ public class JobController {
 
     })
     @PostMapping("/scan")
-    public ResultMessageBean scanJob(String phone, String jobId) {
-        System.out.println("scan "+phone+" "+jobId);
-        return jobService.scanJob(phone,jobId);
-
+    public ResultMessageBean scanJob(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, Object> m=(Map<String, Object> )jo.parse(param);
+        System.out.println("scan " + m.get("phone") + " " + m.get("jobId"));
+        return jobService.scanJob(m.get("phone").toString(), m.get("jobId").toString());
     }
 
     /*

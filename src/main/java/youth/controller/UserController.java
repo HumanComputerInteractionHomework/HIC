@@ -72,7 +72,6 @@ public class UserController {
     public ResultMessageBean signUp(@RequestBody String param) {
         JSONObject jo = new JSONObject();
         Map<String, String> m=(Map<String, String> )jo.parse(param);
-        System.out.println(m.get("phone")+ m.get("password")+ m.get("mail")+ m.get("name"));
         return userBLService.signUp(m.get("phone"), m.get("password"), m.get("mail"), m.get("name"));
 
 
@@ -321,6 +320,7 @@ public class UserController {
 
         ExpectationBean expectationBean =new ExpectationBean(m.get("phone"), m.get("salary"), Integer.parseInt(m.get("lowSalary").toString()),Integer.parseInt(m.get("highSalary").toString()),
                 expectLocationBeans, expectCompanyQualityBeans, expectCompanyLevelBeans, expectJobTypeBeans);
+
         System.out.println(expectationBean.toString());
         return userBLService.saveExpectation(expectationBean);
     }

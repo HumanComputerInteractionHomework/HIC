@@ -3,6 +3,7 @@ package youth.controller;
 * @author:lw
 */
 
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -14,6 +15,7 @@ import youth.blservice.CompanyBLService;
 import youth.blservice.StatisticsBLService;
 
 import java.util.List;
+import java.util.Map;
 
 @Api(value = "统计模块", description = "统计相关接口")
 @RestController
@@ -36,10 +38,10 @@ public class StatisticsController {
 
     })
     @PostMapping("/company/keywords")
-    public List<CompanyDescOutputBean> getCompanyKeywords(String companyName) {
-
-        return statisticsBLService.getCompanyKeywords(companyName);
-
+    public List<CompanyDescOutputBean> getCompanyKeywords(@RequestBody String param) {
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        return statisticsBLService.getCompanyKeywords(m.get("companyName"));
     }
 
 

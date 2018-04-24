@@ -3,6 +3,7 @@ package youth.controller;
 * @author:MAX
 */
 
+import com.alibaba.fastjson.JSONObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -13,6 +14,7 @@ import youth.bean.*;
 import youth.blservice.CompanyBLService;
 
 import java.util.List;
+import java.util.Map;
 
 @Api(value = "职业模块", description = "职业相关接口")
 @RestController
@@ -36,8 +38,6 @@ public class CompanyController {
             @ApiImplicitParam(name = "ceoScore", value = "ceo支持率", required = true, dataType = "int"),
 
             @ApiImplicitParam(name = "remark", value = "评价", required = true, dataType = "String"),
-
-
 
     })
     @PostMapping("/remark")
@@ -120,12 +120,15 @@ public class CompanyController {
      得到工作具体信息
      */
     @ResponseBody
-    @RequestMapping(
-            value = "/jobDetail/{jobId}",
-            method = RequestMethod.GET,
-            produces = {"application/json; charset=UTF-8"})
-    public JobDetailBean getJobDetailByJobId(@PathVariable String jobId){
-        return companyBLService.getJobDetailByJobId(jobId);
+//    @RequestMapping(
+//            value = "/jobDetail/{jobId}",
+//            method = RequestMethod.GET,
+//            produces = {"application/json; charset=UTF-8"})
+    @PostMapping("/jobDetail")
+    public JobDetailBean getJobDetailByJobId(@RequestBody String param){
+        JSONObject jo = new JSONObject();
+        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        return companyBLService.getJobDetailByJobId(m.get("jobId"));
     }
 
 
