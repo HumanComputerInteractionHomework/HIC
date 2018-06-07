@@ -210,7 +210,7 @@ function showCareerItems(careerItems, flag) {
                 '                    <span class="t3">'+joblocation+'</span>\n' +
                 '                    <span class="t4">'+salary+'</span>\n' +
                 '                    <span class="t5">'+matchDegree+'</span>\n' +
-                '                    <button type="button" class="like t6" onclick="like(this,'+jobId+')"><i class="fa fa-bookmark-o fa-lg" ></i></button>\n' +
+                '                    <button type="button" class="like t6" onclick="like(this,'+jobId+')"><i class="glyphicon glyphicon-heart" ></i></button>\n' +
                 '                    <button type="button" class="dislike t7" onclick="dislike(this,'+jobId+')"><i class="fa fa-frown-o fa-lg" ></i></button>\n' +
                 '                </div>';
         }
@@ -250,7 +250,7 @@ function showRecommendationItems(careerItems) {
             '                    <span class="t3">'+joblocation+'</span>\n' +
             '                    <span class="t4">'+salary+'</span>\n' +
             '                    <span class="t5">'+matchDegree+'</span>\n' +
-            '                    <button type="button" class="like t6" onclick="like(this,'+jobId+')"><i class="fa fa-bookmark-o fa-lg" ></i></button>\n' +
+            '                    <button type="button" class="like t6" onclick="like(this,'+jobId+')"><i class="glyphicon glyphicon-heart" ></i></button>\n' +
             '                    <button type="button" class="dislike t7" onclick="dislike(this,'+jobId+')"><i class="fa fa-frown-o fa-lg" ></i></button>\n' +
             '                </div>';
     }
@@ -287,7 +287,7 @@ function showConlectionItems(careerItems) {
             '                    <span class="t3">'+joblocation+'</span>\n' +
             '                    <span class="t4">'+salary+'</span>\n' +
             '                    <span class="t5">'+matchDegree+'</span>\n' +
-            '<button type="button" class="like t6" onclick="competition(this,'+jobId+')"><i class="fa fa-bar-chart-o (alias) fa-lg" ></i></button>\n' +
+            '<button type="button" class="like t6" onclick="competition(this,'+jobId+')"><i class="glyphicon glyphicon-heart" ></i></button>\n' +
             '                <button type="button" class="dislike t7" onclick="dislike(this,'+jobId+')"><i class="fa fa-frown-o fa-lg" ></i></button>'+
             '                </div>';
     }

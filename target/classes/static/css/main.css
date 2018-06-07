@@ -1043,7 +1043,6 @@ ul.service_box li.service_box-right p{
 
 .t2 {
     width:200px;
-
 }
 .t3 {
     width:150px;
@@ -1111,7 +1110,7 @@ ul.service_box li.service_box-right p{
 }
 .result_content_item0 span{
     color: #808080;
-    font-size: 18px;
+    font-size: 16px;
     font-family: "微软雅黑 Light";
     text-align: center;
     display: inline-block;
@@ -1128,7 +1127,7 @@ ul.service_box li.service_box-right p{
 }
 .result_content_item1 span{
     color: #808080;
-    font-size: 18px;
+    font-size: 16px;
     font-family: "微软雅黑 Light";
     text-align: center;
     display: inline-block;
