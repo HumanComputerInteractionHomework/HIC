@@ -163,9 +163,9 @@ public class JobListBL implements JobListBLService {
             double cityMatch=1;
 
 
-            int dbSalary=jobVector1.getSalaryMid();
-            int expectSalary=searchBean.getSalary();
-            double salaryMatch=1-(double)Math.abs(dbSalary-expectSalary)/(double)(dbSalary>expectSalary?dbSalary:expectSalary);
+            int dbSalary = jobVector1.getSalaryMid();
+            int expectSalary = searchBean.getSalary();
+            double salaryMatch = 1 - (double) Math.abs(dbSalary - expectSalary) / (double) (dbSalary>expectSalary?dbSalary:expectSalary);
 
             int expectEdu=jobVector.getEducationDegree();
             int dbEdu=jobVector1.getEducationDegree();
@@ -183,7 +183,7 @@ public class JobListBL implements JobListBLService {
         res.setResult(jobListBeans);
         res.setTotalCount((int)result.getTotalElements());
 
-        System.out.println("【开始】"+result.getTotalElements());
+        System.out.println("【开始】" + result.getTotalElements());
 
        return res;
     }
