@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-md-6" >
                 <span id="detail_salary" class="search_title_main" style="float: right;color: #4682B4">20000-40000</span></br>
                 <div style="clear:both; float: right;">
-                    <a type="button" class="title-btn"  id="btn_isLike" ><span class="glyphicon glyphicon-heart"></span> 点击收藏</a>
+                    <a type="button" class="title-btn" id="btn_isLike"  onclick="collected()"><span class="glyphicon glyphicon-heart"></span> 点击收藏</a>
                     <a href="#comment_block" class="title-btn"  id="btn_comment"><span class="glyphicon glyphicon-comment"></span> 查看评价</a>
                 </div>
             </div>
@@ -249,10 +249,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="detail_block" id="comment_block">
             <div class="detail_score">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div style="padding-left: 20px;padding-bottom: 5px" >
-                            <h3 style="color: #4682B4">用户评价:</h3>
-                        </div>
+                    <div class="col-md-6" style="padding-left: 20px">
+                        <h3 style="color: #4682B4">用户评价:</h3>
                     </div>
                     <div class="col-md-6">
                         <button type="button" class="title-btn" style="float: right;margin-bottom: 10px" ><span class="glyphicon glyphicon-pencil"></span> 我要评价</button>
@@ -404,8 +402,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     var n2 = loc.indexOf("=");//取得=号的位置
     var jobid = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
     getDetailInfo(jobid);
-    var element=document.getElementById("btn_isLike");
-    element.addEventListener('click',collected(element,jobid));
+//    var element=document.getElementById("btn_isLike");
+//    element.addEventListener("click",collected);
 </script>
 
 <script type="text/javascript">
@@ -438,20 +436,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
     function shiftFrame(id) {
         if (id == 2) {
-            alert("aaa");
             $("#detail_info_title1").css("background","white")
             $("#detail_info_title1").css("color","#4682B4")
             $("#detail_info_title2").css("background","#4682b4")
             $("#detail_info_title2").css("color","#ffffff")
-            $("#detail_info_block1").css("display","none");
-            $("#detail_info_block2").css("display","block");
+            $("#detail_info_block1").removeClass('detail_info_block_show');
+            $("#detail_info_block1").addClass("detail_info_block_hide");
+            $("#detail_info_block2").addClass("detail_info_block_show");
+            $("#detail_info_block2").removeClass("detail_info_block_hide");
         } else {
             $("#detail_info_title2").css("background","white")
             $("#detail_info_title2").css("color","#4682B4")
             $("#detail_info_title1").css("background","#4682B4")
             $("#detail_info_title1").css("color","#ffffff")
-            $("#detail_info_block2").css("display","none");
-            $("#detail_info_block1").css("display","block");
+            $("#detail_info_block1").addClass('detail_info_block_show');
+            $("#detail_info_block1").removeClass("detail_info_block_hide");
+            $("#detail_info_block2").removeClass("detail_info_block_show");
+            $("#detail_info_block2").addClass("detail_info_block_hide");
         }
 
     }

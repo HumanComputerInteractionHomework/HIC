@@ -12,7 +12,7 @@ function getDetailInfo(jobId) {
             var jobId =data.jobId;
             getCompanyImage(companyName);
             getSkillImage(jobId);
-            judgeCollected(jobId);
+            isCollected(jobId);
             getRadar(companyName);
         }
     });
@@ -289,75 +289,90 @@ function showRadarInfo(data) {
     }
 }
 
-function judgeCollected(id) {
-    var element=document.getElementById("btn_isLike");
-    var result=0;
-    var phone = getCookie("phone");
-    if(phone =="") {
-        alert("请先登录！");
-        window.location.href = "page_signin.html";
-    }
-    var url = "joblist/save/get";
 
-    var json_data = {"phone": phone};
-    $.ajax({
-        type:'post',
-        url:url,
-        contentType:'application/json;charset=utf-8',
-        data: JSON.stringify(json_data),
-        success:function (data) {
-            var collectedItems=data.result;
-            for(var item in collectedItems){
-                if(item.jobId==id){
-                    result=1;
-                    break;
-                }
-            }
-            if(result==1){
-                element.style.color="#4682B4";
-                element.html("已收藏");
-            }
+function isCollected(id) {
+    var phone = getCookie("phone");
+    var element=document.getElementById("btn_isLike");
+    var data = data = {result : [{"jobId":66703365,"jobName":"大数据研发工程师","jobLocation":"南京","salary":"0.8-1.5万/月","companyName":"南京中新赛克科技有限责任公司","matchDegree":0.99},
+        {"jobId":66636610,"jobName":"高级JAVA软件工程师","jobLocation":"南京","salary":"8-15万/年","companyName":"上海若雅软件系统有限公司南京办事处","matchDegree":0.99}],
+        page:1,
+        size:10,
+        totalCount :2};
+    var careerItems=data.result;
+    for(var i=0;i<careerItems.length;i++){
+        var jobId = careerItems[i].jobId;
+        if(jobId==id){
+            element.style.color="#4682B4";
+            element.innerHTML="<span class='glyphicon glyphicon-heart'></span> 已收藏";
+            break;
         }
-    });
+    }
+    // if(phone !="") {
+    //     var url = "joblist/save/get";
+    //     var json_data = {"phone": phone};
+    //     $.ajax({
+    //         type:'post',
+    //         url:url,
+    //         contentType:'application/json;charset=utf-8',
+    //         data: JSON.stringify(json_data),
+    //         success:function (data) {
+    //             var careerItems=data.result;
+    //             for(var item in careerItems){
+    //                 var jobId = item.jobId;
+    //                 if(jobId==id){
+    //                     element.style.color="#4682B4";
+    //                     element.innerHTML="已收藏";
+    //                     break;
+    //                 }
+    //             }
+    //         }
+    //     });
+    // }
 }
 
-function collected(that,id) {
+
+function collected() {
+    var that=document.getElementById("btn_isLike");
     var phone = getCookie("phone");
     if(phone =="") {
         alert("请先登录！");
         window.location.href = "page_signin.html";
     }else {
-        if(that.style.color=="#4682B4") {
-            var url = "/job/like/cancel";
-            var json_data = {
-                "phone": phone,
-                "jobId": id + ""
-            };
-            $.ajax({
-                type: 'post',
-                url: url,
-                contentType: 'application/json;charset=utf-8',
-                data: JSON.stringify(json_data),
-                success: function (data) {
-                    that.style.color = "#808080";
-                    that.html("点击收藏");
-                }
-            });
+        if(that.style.color=="rgb(70, 130, 180)") {
+            // var url = "/job/like/cancel";
+            // var json_data = {
+            //     "phone": phone,
+            //     "jobId": id + ""
+            // };
+            // $.ajax({
+            //     type: 'post',
+            //     url: url,
+            //     contentType: 'application/json;charset=utf-8',
+            //     data: JSON.stringify(json_data),
+            //     success: function (data) {
+            //         that.style.color = "#808080";
+            //         that.innerHTML="点击收藏";
+            //     }
+            // });
+            that.style.color = "#808080";
+            that.innerHTML="<span class='glyphicon glyphicon-heart'></span> 点击收藏";
         }
         else{
-            var url = "/job/like";
-            var json_data = {"phone": phone,
-                "jobId": id+""};
-            $.ajax({
-                type:'post',
-                url:url,
-                contentType:'application/json;charset=utf-8',
-                data: JSON.stringify(json_data),
-                success:function (data) {
-                    that.style.color = "#4682B4";
-                    that.html("已收藏");
-                }
-            });
+            // var url = "/job/like";
+            // var json_data = {"phone": phone,
+            //     "jobId": id+""};
+            // $.ajax({
+            //     type:'post',
+            //     url:url,
+            //     contentType:'application/json;charset=utf-8',
+            //     data: JSON.stringify(json_data),
+            //     success:function (data) {
+            //         that.style.color = "#4682B4";
+            //         that.innerHTML="已收藏";
+            //     }
+            // });
+            that.style.color = "#4682B4";
+            that.innerHTML="<span class='glyphicon glyphicon-heart'></span> 已收藏";
         }
     }
 }
