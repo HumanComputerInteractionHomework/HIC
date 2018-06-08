@@ -202,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--<h3>公司信息:</h3>-->
             <!--</div>-->
         </div>
-        <div class="detail_info_block_show">
+        <div class="detail_info_block_show" id="detail_info_block1">
                 <pre id="detail_position_para">
                     1、负责京东云大数据基础平台系统设计、性能优化和稳定性提升；
 
@@ -224,7 +224,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     职能类别：系统架构设计师
                 </pre>
         </div>
-        <div class="detail_info_block_hide">
+        <div class="detail_info_block_hide" id="detail_info_block2">
                 <pre id="detail_company_para">
                     1、负责京东云大数据基础平台系统设计、性能优化和稳定性提升；
 
@@ -438,6 +438,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
     function shiftFrame(id) {
         if (id == 2) {
+            alert("aaa");
             $("#detail_info_title1").css("background","white")
             $("#detail_info_title1").css("color","#4682B4")
             $("#detail_info_title2").css("background","#4682b4")

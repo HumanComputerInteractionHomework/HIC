@@ -1,5 +1,3 @@
-
-
 function getDetailInfo(jobId) {
     //获得职位基本信息
     var career_url = "company/jobDetail";
@@ -14,6 +12,7 @@ function getDetailInfo(jobId) {
             var jobId =data.jobId;
             getCompanyImage(companyName);
             getSkillImage(jobId);
+            judgeCollected(jobId);
             getRadar(companyName);
         }
     });
@@ -70,7 +69,6 @@ function getRadar(keywords) {
 
 
 function showDetailInfo(data) {
-
     $("#company_name").text(data.companyName);
     $("#company_addr").text(data.jobLocation);
     $("#detail_salary").text(data.salary);
@@ -250,7 +248,7 @@ function showRadarInfo(data) {
         },
         tooltip: {},
         legend: {
-            data: ['平均水平','个人水平']
+            data: ['平均水平', '个人水平']
         },
         radar: {
             // shape: 'circle',
@@ -263,30 +261,106 @@ function showRadarInfo(data) {
                 }
             },
             indicator: [
-                { name: '第一学历', max: 100},
-                { name: '管理', max: 100},
-                { name: '团队协作', max: 100},
-                { name: '职业技能', max: 100},
-                { name: '薪酬', max: 100}
+                {name: '第一学历', max: 100},
+                {name: '管理', max: 100},
+                {name: '团队协作', max: 100},
+                {name: '职业技能', max: 100},
+                {name: '薪酬', max: 100}
             ]
         },
         series: [{
             name: '',
             type: 'radar',
-            data : [
+            data: [
                 {
-                    value : aveData ,
-                    name : '平均水平'
+                    value: aveData,
+                    name: '平均水平'
                 },
                 {
-                    value : personalData,
-                    name : '个人水平'
+                    value: personalData,
+                    name: '个人水平'
                 }
             ]
         }]
-    };;
+    };
+    ;
     if (option && typeof option === "object") {
         myChart.setOption(option, true);
     }
 }
+
+function judgeCollected(id) {
+    var element=document.getElementById("btn_isLike");
+    var result=0;
+    var phone = getCookie("phone");
+    if(phone =="") {
+        alert("请先登录！");
+        window.location.href = "page_signin.html";
+    }
+    var url = "joblist/save/get";
+
+    var json_data = {"phone": phone};
+    $.ajax({
+        type:'post',
+        url:url,
+        contentType:'application/json;charset=utf-8',
+        data: JSON.stringify(json_data),
+        success:function (data) {
+            var collectedItems=data.result;
+            for(var item in collectedItems){
+                if(item.jobId==id){
+                    result=1;
+                    break;
+                }
+            }
+            if(result==1){
+                element.style.color="#4682B4";
+                element.html("已收藏");
+            }
+        }
+    });
+}
+
+function collected(that,id) {
+    var phone = getCookie("phone");
+    if(phone =="") {
+        alert("请先登录！");
+        window.location.href = "page_signin.html";
+    }else {
+        if(that.style.color=="#4682B4") {
+            var url = "/job/like/cancel";
+            var json_data = {
+                "phone": phone,
+                "jobId": id + ""
+            };
+            $.ajax({
+                type: 'post',
+                url: url,
+                contentType: 'application/json;charset=utf-8',
+                data: JSON.stringify(json_data),
+                success: function (data) {
+                    that.style.color = "#808080";
+                    that.html("点击收藏");
+                }
+            });
+        }
+        else{
+            var url = "/job/like";
+            var json_data = {"phone": phone,
+                "jobId": id+""};
+            $.ajax({
+                type:'post',
+                url:url,
+                contentType:'application/json;charset=utf-8',
+                data: JSON.stringify(json_data),
+                success:function (data) {
+                    that.style.color = "#4682B4";
+                    that.html("已收藏");
+                }
+            });
+        }
+    }
+}
+
+
 
