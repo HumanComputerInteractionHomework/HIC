@@ -26,7 +26,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css" href="css/base.css"/>
     <link rel="stylesheet" type="text/css" href="css/pageGroup.css"/>
     <!-- Custom Theme files -->
-    <link href="css/main.css" rel='stylesheet' type='text/css' />
+
+    <!-- 为了防止冲突，不用main.css,用search.css -->
+    <link href="css/search.css" rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" type="text/css" href="css/zzsc.css">-->
     <link rel="stylesheet" href="css/dcalendar.picker.css"/>
@@ -37,102 +39,102 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!----font-Awesome----->
 </head>
 <body>
-    <!-- header -->
-    <div class="header" style="padding-bottom:0;">
-        <!-- container -->
-        <!-- top-nav -->
-        <div class="container">
-            <div class="logo">
-                <a href="home.html"><img src="images/logo.png" alt=""/></a>
+<!-- header -->
+<div class="header" style="padding-bottom:0;">
+    <!-- container -->
+    <!-- top-nav -->
+    <div class="container">
+        <div class="logo">
+            <a href="home.html"><img src="images/logo.png" alt=""/></a>
+        </div>
+        <div class="header_bottom_right">
+            <div class="h_menu4"><!-- start h_menu4 -->
+                <a class="toggleMenu" href="#">Menu</a>
+                <ul class="nav">
+                    <li><a href="home.html">主页</a></li>
+                    <li><a href="">职业规划</a></li>
+                    <li><a href="page_search.html">职位搜索</a></li>
+                    <li><a href="page_matching.html">智能推荐</a></li>
+                    <li><a href=""class="hover">数据中心</a>
+                        <ul>
+                            <li><a href="page_stats.html">大数据职位分布</a></li>
+                            <li><a href="page_factor.html">薪酬影响因素</a></li>
+                            <li><a href="page_image.html">企业画像</a></li>
+                            <li><a href="page_image.html">技能图谱</a></li>
+                        </ul>
+                    </li>
+                    <li><a style="background: none"><img src="./images/more.png" class="more"/> </a>
+                        <ul style="color: #808080">
+                            <li><a href="page_collection.html"><span class="glyphicon glyphicon-heart"></span>  我的收藏</a></li>
+                            <li><a href="page_allInfo.html"><span class="glyphicon glyphicon-credit-card"></span>  我的信息</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-leaf"></span>  关于我们</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-log-out"></span>  退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <script type="text/javascript" src="js/nav.js"></script>
             </div>
-            <div class="header_bottom_right">
-                <div class="h_menu4"><!-- start h_menu4 -->
-                    <a class="toggleMenu" href="#">Menu</a>
-                    <ul class="nav">
-                        <li><a href="home.html">主页</a></li>
-                        <li><a href="">职业规划</a></li>
-                        <li><a href="page_search.html">职位搜索</a></li>
-                        <li><a href="page_matching.html">智能推荐</a></li>
-                        <li><a href=""class="hover">数据中心</a>
-                            <ul>
-                                <li><a href="page_stats.html">大数据职位分布</a></li>
-                                <li><a href="page_factor.html">薪酬影响因素</a></li>
-                                <li><a href="page_image.html">企业画像</a></li>
-                                <li><a href="page_image.html">技能图谱</a></li>
-                            </ul>
-                        </li>
-                        <li><a style="background: none"><img src="./images/more.png" class="more"/> </a>
-                            <ul style="color: #808080">
-                                <li><a href="page_collection.html"><span class="glyphicon glyphicon-heart"></span>  我的收藏</a></li>
-                                <li><a href="page_allInfo.html"><span class="glyphicon glyphicon-credit-card"></span>  我的信息</a></li>
-                                <li><a href=""><span class="glyphicon glyphicon-leaf"></span>  关于我们</a></li>
-                                <li><a href=""><span class="glyphicon glyphicon-log-out"></span>  退出</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <script type="text/javascript" src="js/nav.js"></script>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
+            <div class="clearfix"> </div>
         </div>
     </div>
-    <div style="background: #f6f6f6">
-        <div class="container">
-            <div class="row search_title">
-                <div class="col-md-6">
-                    <span id="career_search" class="search_title_main" style="margin-right: 50px;color: #4682B4">职位搜索</span>
-                    <span style="color: #808080" >排序</span>
-                    <select class="sort-select" id="sortId">
-                        <option value="0">匹配度</option>
-                        <option value="1">公司名</option>
-                        <option value="2">职位</option>
-                        <option value="3">地点</option>
-                        <option value="4">薪酬</option>
-                    </select>
-                </div>
-                <div class="col-md-6" style="margin-top: 20px">
-                    <a class="search2-btn" style="color: #1f96e0;" data-toggle="modal" href="#search">全匹配搜索</a>
-                    <a class="search2-btn" style="color: #1f96e0;margin-right: 20px" data-toggle="modal" href="#fuzzySearch">模糊搜索</a>
-                </div>
+</div>
+<div style="background: #f6f6f6">
+    <div class="container">
+        <div class="row search_title">
+            <div class="col-md-6">
+                <span id="career_search" class="search_title_main" style="margin-right: 50px;color: #4682B4">职位搜索</span>
+                <span style="color: #808080" >排序</span>
+                <select class="sort-select" id="sortId">
+                    <option value="0">匹配度</option>
+                    <option value="1">公司名</option>
+                    <option value="2">职位</option>
+                    <option value="3">地点</option>
+                    <option value="4">薪酬</option>
+                </select>
             </div>
-            <div class="result_content" id="heatContent">
-                <div  class="row">
-
-                    <div class="col-md-4 heatList" id="heatList">
-                        <h3 style="color: #4682B4; font-family: '微软雅黑 Light';margin-left: 20px;margin-top: 10px;text-align: center">热门公司排行:</h3>
-                        <div class="heat-title">
-                            <span class="t51">公司名称</span>
-                            <span class="t52">浏览次数</span>
-                        </div>
-                        <div class="heat-content">
-                            <div id="baseline2"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 heatImage" id="heatImage">
-
-                    </div>
-                </div>
-            </div>
-            <div id="baseline"></div>
-            <div id="pageGro" class="cb" style="width: 400px;">
-                <div class="pageUp">上一页</div>
-                <div class="pageList" >
-                    <ul style="list-style:none;float: left;margin:0;padding:0;">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
-                    </ul>
-                </div>
-                <div class="pageDown">下一页</div>
-                <div style="padding-top: 2px"><span id="pageId" class="pageButtonInfo" style="margin-top: 0px;list-style:none">第1页/共5页</span></div>
+            <div class="col-md-6" style="margin-top: 20px">
+                <a class="search2-btn" style="color: #1f96e0;" data-toggle="modal" href="#search">全匹配搜索</a>
+                <a class="search2-btn" style="color: #1f96e0;margin-right: 20px" data-toggle="modal" href="#fuzzySearch">模糊搜索</a>
             </div>
         </div>
+        <div class="result_content" id="heatContent">
+            <div  class="row">
+
+                <div class="col-md-4 heatList" id="heatList">
+                    <h3 style="color: #4682B4; font-family: '微软雅黑 Light';margin-left: 20px;margin-top: 10px;text-align: center">热门公司排行:</h3>
+                    <div class="heat-title">
+                        <span class="t51">公司名称</span>
+                        <span class="t52">浏览次数</span>
+                    </div>
+                    <div class="heat-content">
+                        <div id="baseline2"></div>
+                    </div>
+                </div>
+                <div class="col-md-8 heatImage" id="heatImage">
+
+                </div>
+            </div>
+        </div>
+        <div id="baseline"></div>
+        <div id="pageGro" class="cb" style="width: 400px;">
+            <div class="pageUp">上一页</div>
+            <div class="pageList" >
+                <ul style="list-style:none;float: left;margin:0;padding:0;">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="pageDown">下一页</div>
+            <div style="padding-top: 2px"><span id="pageId" class="pageButtonInfo" style="margin-top: 0px;list-style:none">第1页/共5页</span></div>
+        </div>
     </div>
-    <!-- footer -->
-    <div class="footer">
-        <div class="container">
+</div>
+<!-- footer -->
+<div class="footer">
+    <div class="container">
         <!-- footer-grids -->
         <div class="row">
             <div class="col-md-3 footer-grid">
@@ -187,156 +189,156 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <!-- footer-grids -->
     </div>
-    </div>
-    <div>
-        <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-left: 34%">
-            <div class="modal-dialog" style="display: inline-block;width: 435px">
-                    <div class="row " id="pjpage1" style="display: block;padding-right: 0px;padding-left: 0px">
-                        <!-- /.signup form -->
-                            <div class="signup-header wow fadeInUp " style="margin-bottom: 10px; padding-bottom: 10px;background: #fff">
-                                <h3 class="form-title text-center" style="margin-bottom: 20px">全匹配搜索</h3>
-                                <form class="form-header" role="form" style="padding-left: 10px" >
-                                    <div class="form-group">
-                                        <select  class="form-control input-lg" id="salary"  style="border-radius: 2px;color: #808080" required onchange="incomeSelected(this)">
-                                            <option value="0">月薪范围</option>
-                                            <option value="5000"><5k</option>
-                                            <option value="10000">5k-10k</option>
-                                            <option value="15000">10k-15k</option>
-                                            <option value="20000">15k-20k</option>
-                                            <option value="30000">20k-30k</option>
-                                            <option value="50000">30k-50k</option>
-                                            <option value="100000">>50k</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="infoinput" id="label_city"style="display: block;margin-top: 253px;margin-left:5px;left:30px;color: #808080;font-family: 宋体" >工作城市</label>
-                                        <select multiple="multiple" style="color: black;width: 417px; padding-right: 0px;padding-left: 0px;color: #808080 "
-                                                class="multiple-groupSelect form-control input-lg " id="jobCity"  >
-                                            <optgroup label="热门城市">
-                                                <option value="北京">北京</option>
-                                                <option value="上海">上海</option>
-                                                <option value="广州">广州</option>
-                                                <option value="深圳">深圳</option>
-                                                <option value="杭州">杭州</option>
-                                                <option value="天津">天津</option>
-                                                <option value="南京">南京</option>
-                                                <option value="武汉">武汉</option>
-                                                <option value="成都">成都</option>
-                                                <option value="西安">西安</option>
-                                                <option value="大连">大连</option>
-                                                <option value="苏州">苏州</option>
-                                                <option value="合肥">合肥</option>
-                                                <option value="厦门">厦门</option>
-                                                <option value="长沙">长沙</option>
-                                                <option value="重庆">重庆</option>
-                                            </optgroup>
-                                            <optgroup label="江苏省">
-                                                <option value="无锡">无锡</option>
-                                                <option value="徐州">徐州</option>
-                                                <option value="常州">常州</option>
-                                                <option value="南通">南通</option>
-                                                <option value="江苏省其他">其他</option>
-                                            </optgroup>
-                                            <optgroup label="浙江省">
-                                                <option value="宁波">宁波</option>
-                                                <option value="温州">温州</option>
-                                                <option value="嘉兴">嘉兴</option>
-                                                <option value="绍兴">绍兴</option>
-                                                <option value="浙江省其他">其他</option>
-                                            </optgroup>
-                                            <optgroup label="广东省">
-                                                <option value="珠海">珠海</option>
-                                                <option value="东莞">东莞</option>
-                                                <option value="佛山">佛山</option>
-                                                <option value="中山">中山</option>
-                                                <option value="广东省其他">其他</option>
-                                            </optgroup>
-                                            <optgroup label="山东省">
-                                                <option value="济南">济南</option>
-                                                <option value="青岛">青岛</option>
-                                                <option value="威海">威海</option>
-                                                <option value="烟台">烟台</option>
-                                                <option value="潍坊">潍坊</option>
-                                                <option value="山东省其他">其他</option>
-                                            </optgroup>
-                                            <optgroup label="其他">
-                                                <option value="">其他</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <select  class="form-control input-lg career-quality" style="border-radius: 2px;color: #808080" id="jobQuality">
-                                            <option value="0">公司性质</option>
-                                            <option value="国企">国企</option>
-                                            <option value="合资">合资</option>
-                                            <option value="外资（欧美）">外资（欧美）</option>
-                                            <option value="外资（非欧美）">外资（非欧美）</option>
-                                            <option value="事业单位">事业单位</option>
-                                            <option value="上市公司">上市公司</option>
-                                            <option value="民营公司">民营公司</option>
-                                            <option value="创业公司">创业公司</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group" >
-                                        <div class="form-group row">
-                                            <div class="col-md-6" style="padding-right: 5px">
-                                                <select  class="form-control input-lg" id="eduRequire"  style="border-radius: 2px;color: #808080" >
-                                                    <option value="0">学历要求</option>
-                                                    <option value="高中">高中及以下</option>
-                                                    <option value="大专">大专(含在读)</option>
-                                                    <option value="本科">本科(含在读)</option>
-                                                    <option value="硕士">硕士(含在读)</option>
-                                                    <option value="博士">博士(含在读)</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6" style="padding-left: 5px">
-                                                <select  class="form-control input-lg" id="workYear"  style="border-radius: 2px;color: #808080" >
-                                                    <option value="-1">职业年限</option>
-                                                    <option value="无工作经验">应届及以上</option>
-                                                    <option value="1年经验">1年经验</option>
-                                                    <option value="2年经验">2年经验</option>
-                                                    <option value="3-4年经验">3-4年</option>
-                                                    <option value="5-7年经验">5-7年</option>
-                                                    <option value="10年以上经验">10年以上</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group last">
-                                        <p style="color: #808080" class="text-center">以上均为选填项</p>
-                                        <input type="button" class="btn btn-warning btn-block btn-lg" value="搜索" data-dismiss="modal" onclick="allMatchSearch(1)">
-                                    </div>
-                                </form>
+</div>
+<div>
+    <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-left: 34%">
+        <div class="modal-dialog" style="display: inline-block;width: 435px">
+            <div class="row " id="pjpage1" style="display: block;padding-right: 0px;padding-left: 0px">
+                <!-- /.signup form -->
+                <div class="signup-header wow fadeInUp " style="margin-bottom: 10px; padding-bottom: 10px;background: #fff">
+                    <h3 class="form-title text-center" style="margin-bottom: 20px">全匹配搜索</h3>
+                    <form class="form-header" role="form" style="padding-left: 10px" >
+                        <div class="form-group">
+                            <select  class="form-control input-lg" id="salary"  style="border-radius: 2px;color: #808080" required onchange="incomeSelected(this)">
+                                <option value="0">月薪范围</option>
+                                <option value="5000"><5k</option>
+                                <option value="10000">5k-10k</option>
+                                <option value="15000">10k-15k</option>
+                                <option value="20000">15k-20k</option>
+                                <option value="30000">20k-30k</option>
+                                <option value="50000">30k-50k</option>
+                                <option value="100000">>50k</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="infoinput" id="label_city"style="display: block;margin-top: 253px;margin-left:5px;left:30px;color: #808080;font-family: 宋体" >工作城市</label>
+                            <select multiple="multiple" style="color: black;width: 417px; padding-right: 0px;padding-left: 0px;color: #808080 "
+                                    class="multiple-groupSelect form-control input-lg " id="jobCity"  >
+                                <optgroup label="热门城市">
+                                    <option value="北京">北京</option>
+                                    <option value="上海">上海</option>
+                                    <option value="广州">广州</option>
+                                    <option value="深圳">深圳</option>
+                                    <option value="杭州">杭州</option>
+                                    <option value="天津">天津</option>
+                                    <option value="南京">南京</option>
+                                    <option value="武汉">武汉</option>
+                                    <option value="成都">成都</option>
+                                    <option value="西安">西安</option>
+                                    <option value="大连">大连</option>
+                                    <option value="苏州">苏州</option>
+                                    <option value="合肥">合肥</option>
+                                    <option value="厦门">厦门</option>
+                                    <option value="长沙">长沙</option>
+                                    <option value="重庆">重庆</option>
+                                </optgroup>
+                                <optgroup label="江苏省">
+                                    <option value="无锡">无锡</option>
+                                    <option value="徐州">徐州</option>
+                                    <option value="常州">常州</option>
+                                    <option value="南通">南通</option>
+                                    <option value="江苏省其他">其他</option>
+                                </optgroup>
+                                <optgroup label="浙江省">
+                                    <option value="宁波">宁波</option>
+                                    <option value="温州">温州</option>
+                                    <option value="嘉兴">嘉兴</option>
+                                    <option value="绍兴">绍兴</option>
+                                    <option value="浙江省其他">其他</option>
+                                </optgroup>
+                                <optgroup label="广东省">
+                                    <option value="珠海">珠海</option>
+                                    <option value="东莞">东莞</option>
+                                    <option value="佛山">佛山</option>
+                                    <option value="中山">中山</option>
+                                    <option value="广东省其他">其他</option>
+                                </optgroup>
+                                <optgroup label="山东省">
+                                    <option value="济南">济南</option>
+                                    <option value="青岛">青岛</option>
+                                    <option value="威海">威海</option>
+                                    <option value="烟台">烟台</option>
+                                    <option value="潍坊">潍坊</option>
+                                    <option value="山东省其他">其他</option>
+                                </optgroup>
+                                <optgroup label="其他">
+                                    <option value="">其他</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select  class="form-control input-lg career-quality" style="border-radius: 2px;color: #808080" id="jobQuality">
+                                <option value="0">公司性质</option>
+                                <option value="国企">国企</option>
+                                <option value="合资">合资</option>
+                                <option value="外资（欧美）">外资（欧美）</option>
+                                <option value="外资（非欧美）">外资（非欧美）</option>
+                                <option value="事业单位">事业单位</option>
+                                <option value="上市公司">上市公司</option>
+                                <option value="民营公司">民营公司</option>
+                                <option value="创业公司">创业公司</option>
+                            </select>
+                        </div>
+                        <div class="form-group" >
+                            <div class="form-group row">
+                                <div class="col-md-6" style="padding-right: 5px">
+                                    <select  class="form-control input-lg" id="eduRequire"  style="border-radius: 2px;color: #808080" >
+                                        <option value="0">学历要求</option>
+                                        <option value="高中">高中及以下</option>
+                                        <option value="大专">大专(含在读)</option>
+                                        <option value="本科">本科(含在读)</option>
+                                        <option value="硕士">硕士(含在读)</option>
+                                        <option value="博士">博士(含在读)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6" style="padding-left: 5px">
+                                    <select  class="form-control input-lg" id="workYear"  style="border-radius: 2px;color: #808080" >
+                                        <option value="-1">职业年限</option>
+                                        <option value="无工作经验">应届及以上</option>
+                                        <option value="1年经验">1年经验</option>
+                                        <option value="2年经验">2年经验</option>
+                                        <option value="3-4年经验">3-4年</option>
+                                        <option value="5-7年经验">5-7年</option>
+                                        <option value="10年以上经验">10年以上</option>
+                                    </select>
+                                </div>
                             </div>
+                        </div>
+                        <div class="form-group last">
+                            <p style="color: #808080" class="text-center">以上均为选填项</p>
+                            <input type="button" class="btn btn-warning btn-block btn-lg" value="搜索" data-dismiss="modal" onclick="allMatchSearch(1)">
+                        </div>
+                    </form>
+                </div>
 
 
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-        </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
     </div>
-    <div>
-        <div class="modal fade" id="fuzzySearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-left: 34%">
-            <div class="modal-dialog" style="display: inline-block;width: 435px">
-                <div class="row " id="pjpage2" style="display: block;padding-right: 0px;padding-left: 0px">
-                    <!-- /.signup form -->
-                    <div class="signup-header wow fadeInUp " style="margin-bottom: 10px; padding-bottom: 10px;background: #fff">
-                        <h3 class="form-title text-center" style="margin-bottom: 0px">模糊搜索</h3>
-                        <form class="form-header" role="form" style="padding-left: 10px" >
-                            <p style="color: #808080;margin-bottom: 20px" class="text-center" >请输入职位关键词进行模糊搜索。</p>
-                            <div class="form-group">
-                                <input class="form-control input-lg" id="jobName" style="padding-left: 20px;color: #808080" type="text"  onFocus=" if(this.value=='职位名称') this.value=''" onBlur="if(this.value=='') this.value='职位名称'" value="职位名称">
-                            </div>
-                            <div>
-                                <input type="button" class="btn btn-warning btn-block btn-lg" value="搜索"  data-dismiss="modal" onclick="fuzzySearchRequest(1)">
-                            </div>
-                        </form>
-                    </div>
+</div>
+<div>
+    <div class="modal fade" id="fuzzySearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-left: 34%">
+        <div class="modal-dialog" style="display: inline-block;width: 435px">
+            <div class="row " id="pjpage2" style="display: block;padding-right: 0px;padding-left: 0px">
+                <!-- /.signup form -->
+                <div class="signup-header wow fadeInUp " style="margin-bottom: 10px; padding-bottom: 10px;background: #fff">
+                    <h3 class="form-title text-center" style="margin-bottom: 0px">模糊搜索</h3>
+                    <form class="form-header" role="form" style="padding-left: 10px" >
+                        <p style="color: #808080;margin-bottom: 20px" class="text-center" >请输入职位关键词进行模糊搜索。</p>
+                        <div class="form-group">
+                            <input class="form-control input-lg" id="jobName" style="padding-left: 20px;color: #808080" type="text"  onFocus=" if(this.value=='职位名称') this.value=''" onBlur="if(this.value=='') this.value='职位名称'" value="职位名称">
+                        </div>
+                        <div>
+                            <input type="button" class="btn btn-warning btn-block btn-lg" value="搜索"  data-dismiss="modal" onclick="fuzzySearchRequest(1)">
+                        </div>
+                    </form>
+                </div>
 
 
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-        </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
     </div>
+</div>
 </body>
 <script src="js/multiple-select.js"></script>
 <script>
