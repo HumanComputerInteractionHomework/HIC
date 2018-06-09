@@ -37,6 +37,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
     <link href="./css/multiple-select.css" rel="stylesheet"/>
     <!----font-Awesome----->
+
+
+    <style>
+        .label_hp{
+            color: #000000;
+            font-family: '微软雅黑';
+            font-weight: 300;
+            font-size: 20px;
+        }
+
+        .select_style{
+            margin-top:-35px;
+            margin-left:140px;
+            width:240px;
+            border-radius: 2px;
+            color: #808080
+        }
+
+        .label_style{
+            position: relative;
+            margin-left: 25px;
+            top: 13px;
+        }
+
+    </style>
+
+
+
+
+
 </head>
 <body>
 <!-- header -->
@@ -92,16 +122,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <option value="4">薪酬</option>
                 </select>
             </div>
-            <div class="col-md-6" style="margin-top: 20px">
-                <a class="search2-btn" style="color: #1f96e0;" data-toggle="modal" href="#search">全匹配搜索</a>
-                <a class="search2-btn" style="color: #1f96e0;margin-right: 20px" data-toggle="modal" href="#fuzzySearch">模糊搜索</a>
-            </div>
+
+
+            <div class="col-md-6" style="top: 10px;">
+                <div class="input-group" style = >
+                    <input id="jobName" type="text" class="form-control" style="height:40px;width: 250px;"placeholder="职位名称">
+                    <span class="input-group-btn" style="top:-30px;left:-211px;">
+						<button class="btn btn-default" onclick="fuzzySearchRequest(1)"  type="button" style="width:85px;height: 40px;line-height: 10px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;">
+                            <p style="text-align: center;margin-left: -30px;">模糊搜索</p>
+						</button>
+					</span>
+                </div><!-- /input-group -->
+
+                <div style="position: relative;left:-110px;">
+                    <a class="search2-btn" style="color: #1f96e0;font-size:18px;margin-top:-70px;" data-toggle="modal" href="#search">全匹配搜索</a>
+                </div>
+            </div><!-- /.col-lg-6 -->
+
+
         </div>
         <div class="result_content" id="heatContent">
             <div  class="row">
 
-                <div class="col-md-4 heatList" id="heatList">
-                    <h3 style="color: #4682B4; font-family: '微软雅黑 Light';margin-left: 20px;margin-top: 10px;text-align: center">热门公司排行:</h3>
+                <div class="col-md-6 heatList" id="heatList">
+                    <h3 style="color: #4682B4; font-family: '微软雅黑 Light';margin-left: 20px;margin-top: 10px;text-align: center">热门公司排行</h3>
                     <div class="heat-title">
                         <span class="t51">公司名称</span>
                         <span class="t52">浏览次数</span>
@@ -110,9 +154,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div id="baseline2"></div>
                     </div>
                 </div>
-                <div class="col-md-8 heatImage" id="heatImage">
+                <!--<div class="col-md-8 heatImage" id="heatImage">-->
+                <!--</div>-->
 
+                <div class="col-md-6 heatList" id="heatOccupyList">
+                    <h3 style="color: #4682B4; font-family: '微软雅黑 Light';margin-left: 20px;margin-top: 10px;text-align: center">热门职位排行</h3>
+                    <div class="heat-title">
+                        <span class="t51">职位名称</span>
+                        <span class="t52">浏览次数</span>
+                    </div>
+                    <div class="heat-content">
+                        <div id="baseline3"></div>
+                    </div>
                 </div>
+
+
             </div>
         </div>
         <div id="baseline"></div>
@@ -198,9 +254,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="signup-header wow fadeInUp " style="margin-bottom: 10px; padding-bottom: 10px;background: #fff">
                     <h3 class="form-title text-center" style="margin-bottom: 20px">全匹配搜索</h3>
                     <form class="form-header" role="form" style="padding-left: 10px" >
+
+                        <!-- 月薪 -->
                         <div class="form-group">
-                            <select  class="form-control input-lg" id="salary"  style="border-radius: 2px;color: #808080" required onchange="incomeSelected(this)">
-                                <option value="0">月薪范围</option>
+
+                            <label class="label_hp label_style" >月薪范围</label>
+                            <select  class="form-control input-lg select_style" id="salary"  required onchange="incomeSelected(this)">
                                 <option value="5000"><5k</option>
                                 <option value="10000">5k-10k</option>
                                 <option value="15000">10k-15k</option>
@@ -209,66 +268,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <option value="50000">30k-50k</option>
                                 <option value="100000">>50k</option>
                             </select>
+
                         </div>
-                        <div class="form-group">
-                            <label class="infoinput" id="label_city"style="display: block;margin-top: 253px;margin-left:5px;left:30px;color: #808080;font-family: 宋体" >工作城市</label>
-                            <select multiple="multiple" style="color: black;width: 417px; padding-right: 0px;padding-left: 0px;color: #808080 "
-                                    class="multiple-groupSelect form-control input-lg " id="jobCity"  >
-                                <optgroup label="热门城市">
-                                    <option value="北京">北京</option>
-                                    <option value="上海">上海</option>
-                                    <option value="广州">广州</option>
-                                    <option value="深圳">深圳</option>
-                                    <option value="杭州">杭州</option>
-                                    <option value="天津">天津</option>
-                                    <option value="南京">南京</option>
-                                    <option value="武汉">武汉</option>
-                                    <option value="成都">成都</option>
-                                    <option value="西安">西安</option>
-                                    <option value="大连">大连</option>
-                                    <option value="苏州">苏州</option>
-                                    <option value="合肥">合肥</option>
-                                    <option value="厦门">厦门</option>
-                                    <option value="长沙">长沙</option>
-                                    <option value="重庆">重庆</option>
-                                </optgroup>
-                                <optgroup label="江苏省">
-                                    <option value="无锡">无锡</option>
-                                    <option value="徐州">徐州</option>
-                                    <option value="常州">常州</option>
-                                    <option value="南通">南通</option>
-                                    <option value="江苏省其他">其他</option>
-                                </optgroup>
-                                <optgroup label="浙江省">
-                                    <option value="宁波">宁波</option>
-                                    <option value="温州">温州</option>
-                                    <option value="嘉兴">嘉兴</option>
-                                    <option value="绍兴">绍兴</option>
-                                    <option value="浙江省其他">其他</option>
-                                </optgroup>
-                                <optgroup label="广东省">
-                                    <option value="珠海">珠海</option>
-                                    <option value="东莞">东莞</option>
-                                    <option value="佛山">佛山</option>
-                                    <option value="中山">中山</option>
-                                    <option value="广东省其他">其他</option>
-                                </optgroup>
-                                <optgroup label="山东省">
-                                    <option value="济南">济南</option>
-                                    <option value="青岛">青岛</option>
-                                    <option value="威海">威海</option>
-                                    <option value="烟台">烟台</option>
-                                    <option value="潍坊">潍坊</option>
-                                    <option value="山东省其他">其他</option>
-                                </optgroup>
-                                <optgroup label="其他">
-                                    <option value="">其他</option>
-                                </optgroup>
-                            </select>
+
+                        <!-- 城市 -->
+                        <div class="form-group" style="margin-top: 40px;">
+                            <label class="label_hp" id="label_city" style="margin-left: 25px;">工作城市</label>
+
+                            <div style="margin-left: 140px;margin-top:-50px;height: 50px;" class="col-mg-4">
+                                <select class="multiple-groupSelect form-control" multiple="multiple" style="width: 240px;"
+                                        id="jobCity"  >
+                                    <optgroup label="热门城市">
+                                        <option value="北京">北京</option>
+                                        <option value="上海">上海</option>
+                                        <option value="广州">广州</option>
+                                        <option value="深圳">深圳</option>
+                                        <option value="杭州">杭州</option>
+                                        <option value="天津">天津</option>
+                                        <option value="南京">南京</option>
+                                        <option value="武汉">武汉</option>
+                                        <option value="成都">成都</option>
+                                        <option value="西安">西安</option>
+                                        <option value="大连">大连</option>
+                                        <option value="苏州">苏州</option>
+                                        <option value="合肥">合肥</option>
+                                        <option value="厦门">厦门</option>
+                                        <option value="长沙">长沙</option>
+                                        <option value="重庆">重庆</option>
+                                    </optgroup>
+                                    <optgroup label="江苏省">
+                                        <option value="无锡">无锡</option>
+                                        <option value="徐州">徐州</option>
+                                        <option value="常州">常州</option>
+                                        <option value="南通">南通</option>
+                                        <option value="江苏省其他">其他</option>
+                                    </optgroup>
+                                    <optgroup label="浙江省">
+                                        <option value="宁波">宁波</option>
+                                        <option value="温州">温州</option>
+                                        <option value="嘉兴">嘉兴</option>
+                                        <option value="绍兴">绍兴</option>
+                                        <option value="浙江省其他">其他</option>
+                                    </optgroup>
+                                    <optgroup label="广东省">
+                                        <option value="珠海">珠海</option>
+                                        <option value="东莞">东莞</option>
+                                        <option value="佛山">佛山</option>
+                                        <option value="中山">中山</option>
+                                        <option value="广东省其他">其他</option>
+                                    </optgroup>
+                                    <optgroup label="山东省">
+                                        <option value="济南">济南</option>
+                                        <option value="青岛">青岛</option>
+                                        <option value="威海">威海</option>
+                                        <option value="烟台">烟台</option>
+                                        <option value="潍坊">潍坊</option>
+                                        <option value="山东省其他">其他</option>
+                                    </optgroup>
+                                    <optgroup label="其他">
+                                        <option value="">其他</option>
+                                    </optgroup>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <select  class="form-control input-lg career-quality" style="border-radius: 2px;color: #808080" id="jobQuality">
-                                <option value="0">公司性质</option>
+
+
+                        <!-- 公司性质 -->
+                        <div class="form-group" style="margin-top: 30px;">
+                            <label class="label_hp label_style">公司性质</label>
+                            <select  class="form-control input-lg career-quality select_style" id="jobQuality">
                                 <option value="国企">国企</option>
                                 <option value="合资">合资</option>
                                 <option value="外资（欧美）">外资（欧美）</option>
@@ -279,36 +347,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <option value="创业公司">创业公司</option>
                             </select>
                         </div>
-                        <div class="form-group" >
-                            <div class="form-group row">
-                                <div class="col-md-6" style="padding-right: 5px">
-                                    <select  class="form-control input-lg" id="eduRequire"  style="border-radius: 2px;color: #808080" >
-                                        <option value="0">学历要求</option>
-                                        <option value="高中">高中及以下</option>
-                                        <option value="大专">大专(含在读)</option>
-                                        <option value="本科">本科(含在读)</option>
-                                        <option value="硕士">硕士(含在读)</option>
-                                        <option value="博士">博士(含在读)</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6" style="padding-left: 5px">
-                                    <select  class="form-control input-lg" id="workYear"  style="border-radius: 2px;color: #808080" >
-                                        <option value="-1">职业年限</option>
-                                        <option value="无工作经验">应届及以上</option>
-                                        <option value="1年经验">1年经验</option>
-                                        <option value="2年经验">2年经验</option>
-                                        <option value="3-4年经验">3-4年</option>
-                                        <option value="5-7年经验">5-7年</option>
-                                        <option value="10年以上经验">10年以上</option>
-                                    </select>
-                                </div>
-                            </div>
+
+                        <!-- 学历要求 -->
+                        <div class="form-group" style="margin-top: 25px;" >
+                            <label class="label_hp label_style">学历要求</label>
+                            <select  class="form-control input-lg select_style" id="eduRequire" >
+                                <option value="高中">高中及以下</option>
+                                <option value="大专">大专(含在读)</option>
+                                <option value="本科">本科(含在读)</option>
+                                <option value="硕士">硕士(含在读)</option>
+                                <option value="博士">博士(含在读)</option>
+                            </select>
                         </div>
+
+                        <!-- 职业年限 -->
+                        <div class="form-group" style="margin-top: 25px;" >
+                            <label class="label_hp label_style">职业年限</label>
+                            <select  class="form-control input-lg select_style" id="workYear">
+                                <option value="无工作经验">应届及以上</option>
+                                <option value="1年经验">1年经验</option>
+                                <option value="2年经验">2年经验</option>
+                                <option value="3-4年经验">3-4年</option>
+                                <option value="5-7年经验">5-7年</option>
+                                <option value="10年以上经验">10年以上</option>
+                            </select>
+                        </div>
+
+
                         <div class="form-group last">
                             <p style="color: #808080" class="text-center">以上均为选填项</p>
                             <input type="button" class="btn btn-warning btn-block btn-lg" value="搜索" data-dismiss="modal" onclick="allMatchSearch(1)">
                         </div>
                     </form>
+
+
                 </div>
 
 
@@ -326,7 +398,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <form class="form-header" role="form" style="padding-left: 10px" >
                         <p style="color: #808080;margin-bottom: 20px" class="text-center" >请输入职位关键词进行模糊搜索。</p>
                         <div class="form-group">
-                            <input class="form-control input-lg" id="jobName" style="padding-left: 20px;color: #808080" type="text"  onFocus=" if(this.value=='职位名称') this.value=''" onBlur="if(this.value=='') this.value='职位名称'" value="职位名称">
+                            <input class="form-control input-lg" id="jobName1" style="padding-left: 20px;color: #808080" type="text"  onFocus=" if(this.value=='职位名称') this.value=''" onBlur="if(this.value=='') this.value='职位名称'" value="职位名称">
                         </div>
                         <div>
                             <input type="button" class="btn btn-warning btn-block btn-lg" value="搜索"  data-dismiss="modal" onclick="fuzzySearchRequest(1)">
@@ -373,6 +445,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         $("#baseline2").before(addElement);
     }
+
+
+    var data2 = [{"word":'',"weight":107},
+        {"word":'销售 ',"weight":93},
+        {"word":'Java ',"weight":85},
+        {"word":'人事',"weight":75},
+        {"word":'会计',"weight":67},
+        {"word":'UI',"weight":51},
+        {"word":'平面设计',"weight":48},
+        {"word":'行政',"weight":38},
+        {"word":'web前端',"weight":24},
+        {"word":'房地产',"weight":13}]
+
+    for (var i = 0; i < data2.length; i++) {
+        if (i==0) {
+            var addElement = '<div class="result_content_item2" style="margin-top: 0px">\n' +
+                '                            <span class="t41"> '+data2[i].word+'</span>\n' +
+                '                            <span class="t44" style="color: red">'+data2[i].weight+'</span>\n' +
+                '                        </div>';
+        }else if (i==1 ||i==2) {
+            var addElement = '<div class="result_content_item2" >\n' +
+                '                            <span class="t41"> '+data2[i].word+'</span>\n' +
+                '                            <span class="t44" style="color: red">'+data2[i].weight+'</span>\n' +
+                '                        </div>';
+        }
+        else{
+            var addElement = '<div class="result_content_item2">\n' +
+                '                            <span class="t41">'+data2[i].word+'</span>\n' +
+                '                            <span class="t44">'+data2[i].weight+'</span>\n' +
+                '                        </div>';
+        }
+
+        $("#baseline3").before(addElement);
+    }
+
     showHeatInfo(data1)
 </script>
 
