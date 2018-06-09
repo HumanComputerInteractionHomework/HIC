@@ -288,7 +288,7 @@ body a{
     border-radius: 0;
     height: 55px;
     width: 100%;
-    background-color: #3eb0f7;
+    background-color: #7D9EC0;
     color: white;
     font-size: 17px !important;
     padding: 0 33px;
@@ -298,7 +298,7 @@ body a{
     transition: all .8s ease;
 }
 .form-header .btn:hover {
-    background-color: #1f96e0;
+    background-color:#7D9EC0;
     -webkit-transition: all .8s ease;
     transition: all .8s ease;
 }
@@ -309,15 +309,15 @@ body a{
     line-height: 20px;
     padding: 15px 35px;
     height: 50px;
-    border: 2px solid #3eb0f7;
+    border: 2px solid #7D9EC0;
     background: transparent;
     transition: all 0.4s;
-    color: #3eb0f7;
+    color: #7D9EC0;
     border-radius: 100px;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
-    border: 2px solid #3eb0f7;
-    background: #3eb0f7;
+    border: 2px solid #7D9EC0;
+    background: #7D9EC0;
     color: white;
 }
 .btn-primary {
@@ -327,8 +327,10 @@ body a{
     line-height: 20px;
     padding: 15px 35px;
     height: 50px;
-    border: 2px solid #3eb0f7;
-    background: #3eb0f7;
+
+
+    border: 2px solid #7D9EC0;
+    background: #7D9EC0;
     transition: all 0.4s;
     color: white;
     border-radius: 100px;

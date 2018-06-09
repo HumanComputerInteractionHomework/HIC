@@ -287,42 +287,51 @@ public class UserController {
             method = RequestMethod.POST,
             produces = {"application/json; charset=UTF-8"})
     public ResultMessageBean saveExpectation(@RequestBody String param) {
-        JSONObject jo = new JSONObject();
-        Map<String, String> m=(Map<String, String> )jo.parse(param);
+        try{
+            JSONObject jo = new JSONObject();
+            Map<String, String> m=(Map<String, String> )jo.parse(param);
 
-        List<ExpectLocationBean> expectLocationBeans= new ArrayList<ExpectLocationBean>();
-        JSONArray ja1 = JSONArray.parseArray(m.get("expectLocationBeans"));
-        for (int i =0; i < ja1.size(); i++) {
-            JSONObject temp = ja1.getJSONObject(i);
-            ExpectLocationBean expectLocationBean = new ExpectLocationBean(temp.getString("phone"), temp.getString("expectLocation"));
-            expectLocationBeans.add(expectLocationBean);
+            List<ExpectLocationBean> expectLocationBeans= new ArrayList<ExpectLocationBean>();
+            JSONArray ja1 = JSONArray.parseArray(m.get("expectLocationBeans"));
+            for (int i =0; i < ja1.size(); i++) {
+                JSONObject temp = ja1.getJSONObject(i);
+                ExpectLocationBean expectLocationBean = new ExpectLocationBean(temp.getString("phone"), temp.getString("expectLocation"));
+                expectLocationBeans.add(expectLocationBean);
+            }
+
+            List<ExpectCompanyQualityBean> expectCompanyQualityBeans= new ArrayList<ExpectCompanyQualityBean>();
+            JSONArray ja2 = JSONArray.parseArray(m.get("expectCompanyQualityBeans"));
+            for (int i =0; i < ja2.size(); i++) {
+                JSONObject temp = ja2.getJSONObject(i);
+                ExpectCompanyQualityBean expectCompanyQualityBean = new ExpectCompanyQualityBean(temp.getString("phone"), temp.getString("expectCompanyQuality"));
+                expectCompanyQualityBeans.add(expectCompanyQualityBean);
+            }
+
+            List<ExpectCompanyLevelBean> expectCompanyLevelBeans= new ArrayList<ExpectCompanyLevelBean>();
+            JSONArray ja3 = JSONArray.parseArray(m.get("expectCompanyLevelBeans"));
+            for (int i =0; i < ja3.size(); i++) {
+                JSONObject temp = ja3.getJSONObject(i);
+                ExpectCompanyLevelBean expectCompanyLevelBean = new ExpectCompanyLevelBean(temp.getString("phone"), temp.getString("expectCompanyLevel"));
+                expectCompanyLevelBeans.add(expectCompanyLevelBean);
+            }
+
+            List<ExpectJobTypeBean> expectJobTypeBeans= new ArrayList<ExpectJobTypeBean>();
+            expectJobTypeBeans.add(new ExpectJobTypeBean(m.get("phone"), m.get("jobType")));
+
+
+            ExpectationBean expectationBean =new ExpectationBean(m.get("phone"), m.get("salary"), Integer.parseInt(m.get("lowSalary").toString()),Integer.parseInt(m.get("highSalary").toString()),
+                    expectLocationBeans, expectCompanyQualityBeans, expectCompanyLevelBeans, expectJobTypeBeans);
+
+            System.out.println(expectationBean.toString());
+
+            return userBLService.saveExpectation(expectationBean);
+        }catch (Exception e){
+
+            return  new ResultMessageBean(false);
         }
 
-        List<ExpectCompanyQualityBean> expectCompanyQualityBeans= new ArrayList<ExpectCompanyQualityBean>();
-        JSONArray ja2 = JSONArray.parseArray(m.get("expectCompanyQualityBeans"));
-        for (int i =0; i < ja2.size(); i++) {
-            JSONObject temp = ja2.getJSONObject(i);
-            ExpectCompanyQualityBean expectCompanyQualityBean = new ExpectCompanyQualityBean(temp.getString("phone"), temp.getString("expectCompanyQuality"));
-            expectCompanyQualityBeans.add(expectCompanyQualityBean);
-        }
-
-        List<ExpectCompanyLevelBean> expectCompanyLevelBeans= new ArrayList<ExpectCompanyLevelBean>();
-        JSONArray ja3 = JSONArray.parseArray(m.get("expectCompanyLevelBeans"));
-        for (int i =0; i < ja3.size(); i++) {
-            JSONObject temp = ja3.getJSONObject(i);
-            ExpectCompanyLevelBean expectCompanyLevelBean = new ExpectCompanyLevelBean(temp.getString("phone"), temp.getString("expectCompanyLevel"));
-            expectCompanyLevelBeans.add(expectCompanyLevelBean);
-        }
-
-        List<ExpectJobTypeBean> expectJobTypeBeans= new ArrayList<ExpectJobTypeBean>();
-        expectJobTypeBeans.add(new ExpectJobTypeBean(m.get("phone"), m.get("jobType")));
 
 
-        ExpectationBean expectationBean =new ExpectationBean(m.get("phone"), m.get("salary"), Integer.parseInt(m.get("lowSalary").toString()),Integer.parseInt(m.get("highSalary").toString()),
-                expectLocationBeans, expectCompanyQualityBeans, expectCompanyLevelBeans, expectJobTypeBeans);
-
-        System.out.println(expectationBean.toString());
-        return userBLService.saveExpectation(expectationBean);
     }
 
      /*
