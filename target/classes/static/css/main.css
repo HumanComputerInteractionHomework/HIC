@@ -288,7 +288,7 @@ body a{
     border-radius: 0;
     height: 55px;
     width: 100%;
-    background-color: #7D9EC0;
+    background-color: #3eb0f7;
     color: white;
     font-size: 17px !important;
     padding: 0 33px;
@@ -298,7 +298,7 @@ body a{
     transition: all .8s ease;
 }
 .form-header .btn:hover {
-    background-color:#7D9EC0;
+    background-color: #1f96e0;
     -webkit-transition: all .8s ease;
     transition: all .8s ease;
 }
@@ -309,15 +309,15 @@ body a{
     line-height: 20px;
     padding: 15px 35px;
     height: 50px;
-    border: 2px solid #7D9EC0;
+    border: 2px solid #3eb0f7;
     background: transparent;
     transition: all 0.4s;
-    color: #7D9EC0;
+    color: #3eb0f7;
     border-radius: 100px;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
-    border: 2px solid #7D9EC0;
-    background: #7D9EC0;
+    border: 2px solid #3eb0f7;
+    background: #3eb0f7;
     color: white;
 }
 .btn-primary {
@@ -327,10 +327,8 @@ body a{
     line-height: 20px;
     padding: 15px 35px;
     height: 50px;
-
-
-    border: 2px solid #7D9EC0;
-    background: #7D9EC0;
+    border: 2px solid #3eb0f7;
+    background: #3eb0f7;
     transition: all 0.4s;
     color: white;
     border-radius: 100px;
@@ -1052,29 +1050,36 @@ ul.service_box li.service_box-right p{
 .t1 {
     margin-left: 20px;
     width:300px;
+    text-align: center;
 }
 
 .t2 {
-    width:80px;
+    width:200px;
     left: -100px;
+    text-align: center;
 }
 .t3 {
     width:150px;
+    text-align: center;
 }
 
 .t4 {
     width:150px;
+    text-align: center;
 }
 .t5 {
     width:100px;
+    text-align: center;
 }
 
 .t6 {
     width:70px;
+    text-align: center;
 }
 .t7 {
     width:80px;
     margin-right: 20px;
+    text-align: center;
 }
 
 .t11 {
@@ -1245,6 +1250,7 @@ ul.service_box li.service_box-right p{
 .detail_info_block_show pre{
     border: none;
     background: none;
+    max-height: 500px;
 }
 .detail_info_block_hide {
     display: none;
