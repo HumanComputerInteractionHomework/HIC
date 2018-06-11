@@ -1250,7 +1250,7 @@ ul.service_box li.service_box-right p{
 .detail_info_block_show pre{
     border: none;
     background: none;
-    max-height: 500px;
+    height: 300px;
 }
 .detail_info_block_hide {
     display: none;

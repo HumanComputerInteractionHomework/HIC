@@ -145,10 +145,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
     function success(){
         alert("评价成功");
-        window.history.go(-1);
+        getHref();
     }
     function cancel() {
-        window.history.go(-1);
+        getHref();
+    }
+    function getHref(){
+        var loc = location.href;
+        var n1 = loc.length;//地址的总长度
+        var n2 = loc.indexOf("=");//取得=号的位置
+        var jobid = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
+        var phone = getCookie("phone");
+        if(phone =="") {
+            alert("请先登录！");
+            window.location.href = "page_signin.html";
+        } else {
+            var url = "/job/scan";
+            var json_data = {"phone": phone,
+                "jobId": jobid};
+            $.ajax({
+                type:'post',
+                url:url,
+                contentType:'application/json;charset=utf-8',
+                data: JSON.stringify(json_data),
+                success:function (data) {
+                    // do nothing
+                }
+            });
+
+            window.location.href = "page_detailInfo.html?job="+encodeURI(jobid);
+        }
     }
 </script>
 </html>
