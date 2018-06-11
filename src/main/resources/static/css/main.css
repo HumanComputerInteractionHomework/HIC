@@ -1050,29 +1050,36 @@ ul.service_box li.service_box-right p{
 .t1 {
     margin-left: 20px;
     width:300px;
+    text-align: center;
 }
 
 .t2 {
-    width:80px;
+    width:200px;
     left: -100px;
+    text-align: center;
 }
 .t3 {
     width:150px;
+    text-align: center;
 }
 
 .t4 {
     width:150px;
+    text-align: center;
 }
 .t5 {
     width:100px;
+    text-align: center;
 }
 
 .t6 {
     width:70px;
+    text-align: center;
 }
 .t7 {
     width:80px;
     margin-right: 20px;
+    text-align: center;
 }
 
 .t11 {
@@ -1243,6 +1250,7 @@ ul.service_box li.service_box-right p{
 .detail_info_block_show pre{
     border: none;
     background: none;
+    max-height: 500px;
 }
 .detail_info_block_hide {
     display: none;

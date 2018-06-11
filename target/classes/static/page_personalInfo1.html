@@ -87,10 +87,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input id='birthday' type='text' style="border-radius: 2px;width: 418px" class="input-lg form-control"  required onFocus="$('#label_birth').hide();" onBlur="if(this.value=='') $('#label_birth').show();"onchange="$('#label_birth').hide();"/>
                                     <!--<input type="date" data-format="yyyy-MM-dd" style="border-radius: 2px" class="input-lg form-control"  required oninvalid="setCustomValidity('请输入出生日期！');" onFocus=" if(this.value=='请输入出生日期！') this.value=''" onBlur="if(this.value=='') this.value='请输入出生日期！'" value="请输入出生日期！" id="birthday">-->
                                 </div>
-                                <!--<div class="form-group">-->
-                                    <!--<label class="infoinput" id="label_worktime"style="display: block;margin-top: 262px;font-family: 宋体">开始工作时间</label>-->
-                                    <!--<input id='jobYear' type='text' style="border-radius: 2px;width: 418px" class="input-lg form-control"  required onFocus="$('#label_worktime').hide();"onBlur="if(this.value=='') $('#label_worktime').show();"onchange="$('#label_worktime').hide();"/>-->
-                                <!--</div>-->
+                                <div class="form-group">
+                                    <label class="infoinput" id="label_worktime"style="display: block;margin-top: 262px;font-family: 宋体">开始工作时间</label>
+                                    <input id='jobYear' type='text' style="border-radius: 2px;width: 418px" class="input-lg form-control"  required onFocus="$('#label_worktime').hide();"onBlur="if(this.value=='') $('#label_worktime').show();"onchange="$('#label_worktime').hide();"/>
+                                </div>
                                 <div class="form-group">
                                     <input class="form-control input-lg" id="address" type="text" required oninvalid="setCustomValidity('请输入居住地址');" onFocus=" if(this.value=='居住地址') this.value=''" onBlur="if(this.value=='') this.value='居住地址'" value="居住地址">
                                 </div>
@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="footer-address">
                             <address>
                                 地址<br>
-                                南京大学, 鼓楼区<br>
+                                东南大学路2号, 江宁区<br>
                                 南京市, 江苏省 210089<br>
                                 <abbr title="Phone">P:</abbr> (5209) 12345678
                             </address>
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="footer-address">
                             <address>
                                 E-mail<br>
-                                151250022@nju.edu.cn
+                                213150727@seu.edu.cn
                             </address>
                         </li>
                     </ul>
@@ -190,29 +190,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     $('#birthday').dcalendarpicker();
 </script>
 <script>
-//    function incomeSelected(that) {
-//        var addform='<div style="margin-bottom: 3px;font-size: 100%; border-bottom: 1px #f7f7f7 solid; border-top: 1px #f7f7f7 solid;padding-top: 3px" >\n' +
-//            '                                    <div class="form-group row">\n' +
-//            '                                        <div class="col-md-6" style="padding-right: 5px">\n' +
-//            '                                            <input class="form-control input-lg" id="basicSalary" type="text"   onFocus=" if(this.value==\'基本工资\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'基本工资\'" value="基本工资">\n' +
-//            '                                        </div>\n' +
-//            '                                        <div class="col-md-6"style="padding-left: 5px">\n' +
-//            '                                            <input class="form-control input-lg" id="bonus" type="text"   onFocus=" if(this.value==\'补贴\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'补贴\'" value="补贴">\n' +
-//            '                                        </div>\n' +
-//            '                                    </div>\n' +
-//            '                                    <div class="form-group row" style="margin-bottom: 5px;">\n' +
-//            '                                        <div class="col-md-6"style="padding-right: 5px">\n' +
-//            '                                            <input class="form-control input-lg" id="Commission" type="text"   onFocus=" if(this.value==\'奖金/佣金\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'奖金/佣金\'" value="奖金/佣金">\n' +
-//            '                                        </div>\n' +
-//            '                                        <div class="col-md-6"style="padding-left: 5px">\n' +
-//            '                                            <input class="form-control input-lg" id="stockShareOption" type="text"   onFocus=" if(this.value==\'股票期权\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'股票期权\'" value="股票期权">\n' +
-//            '                                        </div>\n' +
-//            '                                    </div>\n' +
-//            '                                    <p class="text-center " style="color: #333;font-size: 16px">以上请转换为金额输入(非必填)<button type="button" style="background: none;border:none;" onclick="removeAdd(this,2)">点击折叠</button></p>' +
-//            '                                </div>'
-//        if (!($('#basicSalary').length && $('#basicSalary').length>0))
-//            $('#salaryDiv').after(addform);
-//    }
+    function incomeSelected(that) {
+        var addform='<div style="margin-bottom: 3px;font-size: 100%; border-bottom: 1px #f7f7f7 solid; border-top: 1px #f7f7f7 solid;padding-top: 3px" >\n' +
+            '                                    <div class="form-group row">\n' +
+            '                                        <div class="col-md-6" style="padding-right: 5px">\n' +
+            '                                            <input class="form-control input-lg" id="basicSalary" type="text"   onFocus=" if(this.value==\'基本工资\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'基本工资\'" value="基本工资">\n' +
+            '                                        </div>\n' +
+            '                                        <div class="col-md-6"style="padding-left: 5px">\n' +
+            '                                            <input class="form-control input-lg" id="bonus" type="text"   onFocus=" if(this.value==\'补贴\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'补贴\'" value="补贴">\n' +
+            '                                        </div>\n' +
+            '                                    </div>\n' +
+            '                                    <div class="form-group row" style="margin-bottom: 5px;">\n' +
+            '                                        <div class="col-md-6"style="padding-right: 5px">\n' +
+            '                                            <input class="form-control input-lg" id="Commission" type="text"   onFocus=" if(this.value==\'奖金/佣金\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'奖金/佣金\'" value="奖金/佣金">\n' +
+            '                                        </div>\n' +
+            '                                        <div class="col-md-6"style="padding-left: 5px">\n' +
+            '                                            <input class="form-control input-lg" id="stockShareOption" type="text"   onFocus=" if(this.value==\'股票期权\') this.value=\'\'" onBlur="if(this.value==\'\') this.value=\'股票期权\'" value="股票期权">\n' +
+            '                                        </div>\n' +
+            '                                    </div>\n' +
+            '                                    <p class="text-center " style="color: #333;font-size: 16px">以上请转换为金额输入(非必填)<button type="button" style="background: none;border:none;" onclick="removeAdd(this,2)">点击折叠</button></p>' +
+            '                                </div>'
+        if (!($('#basicSalary').length && $('#basicSalary').length>0))
+            $('#salaryDiv').after(addform);
+    }
 
 </script>
 

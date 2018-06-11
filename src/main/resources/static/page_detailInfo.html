@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="h_menu4"><!-- start h_menu4 -->
                 <a class="toggleMenu" href="#">Menu</a>
                 <ul class="nav">
-                    <li><a href="index.html">主页</a></li>
+                    <li><a href="home.html">主页</a></li>
                     <li><a href="">职业规划</a></li>
                     <li><a href="page_search.html">职位搜索</a></li>
                     <li><a href="page_matching.html">智能推荐</a></li>
@@ -253,7 +253,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h3 style="color: #4682B4">用户评价:</h3>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" class="title-btn" style="float: right;margin-bottom: 10px" ><span class="glyphicon glyphicon-pencil"></span> 我要评价</button>
+                        <button type="button" class="title-btn" style="float: right;margin-bottom: 10px" onclick="fakeEvaluation()"><span class="glyphicon glyphicon-pencil"></span> 我要评价</button>
                     </div>
                 </div>
                 <div class="row">
@@ -402,8 +402,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     var n2 = loc.indexOf("=");//取得=号的位置
     var jobid = decodeURI(loc.substr(n2+1, n1-n2));//从=号后面的内容
     getDetailInfo(jobid);
-//    var element=document.getElementById("btn_isLike");
-//    element.addEventListener("click",collected);
+    //    var element=document.getElementById("btn_isLike");
+    //    element.addEventListener("click",collected);
 </script>
 
 <script type="text/javascript">
@@ -412,6 +412,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         "personalLevel": [84, 67, 78, 84, 91]
     }
     showRadarInfo(data);
+    function fakeEvaluation(){
+        window.location.href="test.html";
+    }
 
 
 </script>
