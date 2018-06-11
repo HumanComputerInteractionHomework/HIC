@@ -148,16 +148,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
         <!-- 全匹配搜索选项 -->
-        <div class="signup-header wow fadeInUp" style="position: relative;margin-bottom: 10px; padding-bottom: 10px; top: -100px;width: 770px;">
+        <div class="signup-header wow fadeInUp" style="position: relative;margin-bottom: 10px; padding-bottom: 10px; top: -100px;width: 1130px;">
 
-            <h3 class="form-title text-center" style="position: relative;left: -323px;">全匹配搜索</h3>
+            <h3 class="form-title text-center" style="position: relative;left: -480px;">全匹配搜索</h3>
 
             <form class="form-header" role="form" style="padding-left: 10px;margin-top: -30px;" >
 
                 <!-- 月薪 -->
                 <div class="form-group row_style" >
 
-                    <label class="label_hp label_style" >月薪范围</label>
+                    <label class="label_hp label_style" style="font-weight: lighter" >月薪范围</label>
                     <select  class="form-control input-lg select_style" id="salary" style = "height: 50px; font-family: '微软雅黑 Light';font-weight:300;font-size: 20px;color: grey" required onchange="incomeSelected(this)">
                         <option value="5000"><5k</option>
                         <option value="10000">5k-10k</option>
@@ -188,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <!-- 学历要求 -->
-                <div class="form-group row_style" style="margin-top: 25px;" >
+                <div class="form-group row_style" style="margin-top: -63px;left:720px;" >
                     <label class="label_hp label_style">学历要求</label>
                     <select  class="form-control input-lg select_style" style = "height: 50px; font-family: '微软雅黑 Light';font-weight:300;font-size: 20px;color: grey" id="eduRequire" >
                         <option value="高中">高中及以下</option>
@@ -200,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
 
                 <!-- 职业年限 -->
-                <div class="form-group row_style" style="margin-top: -65px;left: 360px;">
+                <div class="form-group row_style" style="margin-top: 20px;left: 0px;">
                     <label class="label_hp label_style">职业年限</label>
                     <select  class="form-control input-lg select_style" style = "height: 50px; font-family: '微软雅黑 Light';font-weight:300;font-size: 20px;color: grey" id="workYear">
                         <option value="无工作经验">应届及以上</option>
@@ -214,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <!-- 城市 -->
-                <div class="form-group row_style" style="margin-top: 40px;">
+                <div class="form-group row_style" style="margin-top: -45px;left:360px;">
                     <label class="label_hp label_style" id="label_city" style="top:-8px;">工作城市</label>
 
                     <div style="margin-left: 160px;margin-top:-50px;height: 50px;" class="col-mg-4">
@@ -276,11 +276,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                 <div class="form-group last">
-                    <p style="color: #808080;position: relative;top: 40px;left:-80px;" class="text-center">以上均为选填项</p>
+                    <p style="color: #808080;position: relative;top: 40px;left:-270px;" class="text-center">以上均为选填项</p>
                     <!--<button type="button" class="btn btn6-warning btn-block btn-lg" style="width: 60px;height:50px;border-radius: 5px;margin-left: 500px;text-align: center;" data-dismiss="modal" onclick="allMatchSearch(1)" ><p style="margin-left: -30px;">搜索</p></button>-->
 
                     <div class="input-group">
-                       <span class="input-group-btn" style="top:0px;left:450px;">
+                       <span class="input-group-btn" style="top:0px;left:520px;">
 						<button class="btn btn-default" onclick="allMatchSearch(1)"  type="button" style="width:85px;height: 40px;line-height: 10px;border-radius: 5px; background-color: #59b2f6">
                             <p style="text-align: center;margin-left: -10px;">搜索</p>
 						</button>
@@ -295,8 +295,161 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
 
 
+
+
+        <!-- 结果 -->
+        <div style="position: relative;top:-50px;width:800px;">
+            <div class="result_title">
+                <span class="t1" style="width: 100px;">公司名称</span>
+                <span class="t2" style="width: 180px;">职位</span>
+                <span class="t3" style="width: 100px;">地点</span>
+                <span class="t4" style="width: 140px;">薪酬</span>
+                <span class="t5" style="width: 80px;">匹配度</span>
+                <span class="t6" style="width: 60px;">收藏</span>
+                <span class="t7" style="width: 60px;">不喜欢</span>
+            </div>
+            <div class="result_content">
+                <div class="result_content_item0">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+                    <!--<button type="button" class="like t6">-->
+                    <!--<div class="heart-red">-->
+                    <!--</div>-->
+                    <!--</button>-->
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item1">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item0">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item1">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item0">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item1">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item0">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item1">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item0">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item1">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item0">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+                <div class="result_content_item1">
+                    <span class="t1" style="width: 110px;">京东集团总部</span>
+                    <span class="t2" style="width: 170px;">大数据工程师</span>
+                    <span class="t3" style="width: 110px;">北京-朝阳区</span>
+                    <span class="t4" style="width: 150px;">20000-40000</span>
+                    <span class="t5" style="width: 60px;">95%</span>
+                    <button type="button" class="like t6"style="width: 50px;" ><i class="glyphicon glyphicon-heart"></i></button>
+
+                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
+                </div>
+            </div>
+
+            <p class="text-center" style="margin-top: 5px;margin-bottom: 50px">
+                <button class="page-btn disabled" type="button" style="background: none;border:none;" disabled="disabled" onclick="lastPage()">上一页</button>
+                <button class="page-btn page-btn-active" type="button" style="background: none;border:none;" disabled="disabled" onclick="toPage(1)">1</button>
+                <button class="page-btn " type="button" style="background: none;border:none;"  onclick="toPage(2)">2</button>
+                <button class="page-btn " type="button" style="background: none;border:none;"  onclick="toPage(2)">3</button>
+                <button class="page-btn " type="button" style="background: none;border:none;"  onclick="toPage(2)">4</button>
+                <button class="page-btn" type="button" style="background: none;border:none;"  onclick="nextPage()">下一页</button>
+                <span id="search_currentPage" style="color: #808080">第1页 </span>
+                <span id="search_sumPage" style="color: #808080">共4页</span>
+            </p>
+        </div>
+        <!-- 结果结束 -->
+
+
         <!-- 热门搜索 -->
-        <div style="position: absolute;left:900px;top:170px;width: 200px;">
+        <div style="position: absolute;left:900px;top:560px;width: 200px;">
             <div class="result_content" id="heatContent" style="width: 400px;background-color: transparent">
                 <div  class="row">
 
@@ -334,145 +487,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         </div>
         <!-- 热门搜索结束-->
-
-        <!-- 结果 -->
-        <div style="position: relative;top:-50px;">
-            <div class="result_title">
-                <span class="t1">公司名称</span>
-                <span class="t2">职位</span>
-                <span class="t3">地点</span>
-                <span class="t4">薪酬</span>
-                <span class="t5">匹配度</span>
-                <span class="t6">收藏</span>
-                <span class="t7">不喜欢</span>
-            </div>
-            <div class="result_content">
-                <div class="result_content_item0">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <!--<button type="button" class="like t6">-->
-                    <!--<div class="heart-red">-->
-                    <!--</div>-->
-                    <!--</button>-->
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item1">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item0">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item1">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item0">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item1">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item0">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item1">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item0">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item1">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item0">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-                <div class="result_content_item1">
-                    <span class="t1">京东集团总部</span>
-                    <span class="t2">大数据工程师</span>
-                    <span class="t3">北京-朝阳区</span>
-                    <span class="t4">20000-40000</span>
-                    <span class="t5">95%</span>
-                    <button type="button" class="like t6"><i class="glyphicon glyphicon-heart"></i></button>
-                    <button type="button" class="dislike t7"><i class="fa fa-frown-o fa-lg"></i></button>
-                </div>
-            </div>
-
-            <p class="text-center" style="margin-top: 5px;margin-bottom: 50px">
-                <button class="page-btn disabled" type="button" style="background: none;border:none;" disabled="disabled" onclick="lastPage()">上一页</button>
-                <button class="page-btn page-btn-active" type="button" style="background: none;border:none;" disabled="disabled" onclick="toPage(1)">1</button>
-                <button class="page-btn " type="button" style="background: none;border:none;"  onclick="toPage(2)">2</button>
-                <button class="page-btn " type="button" style="background: none;border:none;"  onclick="toPage(2)">3</button>
-                <button class="page-btn " type="button" style="background: none;border:none;"  onclick="toPage(2)">4</button>
-                <button class="page-btn" type="button" style="background: none;border:none;"  onclick="nextPage()">下一页</button>
-                <span id="search_currentPage" style="color: #808080">第1页 </span>
-                <span id="search_sumPage" style="color: #808080">共4页</span>
-            </p>
-        </div>
-        <!-- 结果结束 -->
 
     </div>
 </div>
@@ -567,10 +581,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         {"word":'塔塔信息技术（中国）',"weight":41},
         {"word":'百丽集团体育事业总部',"weight":47},
         {"word":'北京中科信软科技有限公司',"weight":41},
-        {"word":'湖南大唐科技有限公司',"weight":38}]
-    // {"word":'伺动营销科技有限公司',"weight":38},
-    // {"word":'北京鼎兴达信息公司',"weight":24},
-    // {"word":'上海瀛太信息公司',"weight":23}]
+        {"word":'湖南大唐科技有限公司',"weight":38},
+        {"word":'伺动营销科技有限公司',"weight":38},
+        {"word":'北京鼎兴达信息公司',"weight":24},
+        {"word":'上海瀛太信息公司',"weight":23}]
     for (var i = 0; i < data1.length; i++) {
         if (i==0) {
             var addElement = '<div class="result_content_item2" style="margin-top: 0px">\n' +
